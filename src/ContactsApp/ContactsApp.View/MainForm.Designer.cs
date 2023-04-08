@@ -30,40 +30,40 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MainTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.PeopleListPanel = new System.Windows.Forms.Panel();
             this.ButtonsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.RemoveContactButton = new System.Windows.Forms.PictureBox();
             this.AddContactButton = new System.Windows.Forms.PictureBox();
             this.EditContactButton = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.FindLabel = new System.Windows.Forms.Label();
             this.FindTextBox = new System.Windows.Forms.TextBox();
             this.ContactsListBox = new System.Windows.Forms.ListBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.NotePanel = new System.Windows.Forms.Panel();
             this.BirthdayPanel = new System.Windows.Forms.Panel();
             this.BirthdayPanelCloseButton = new System.Windows.Forms.Button();
             this.BirthdaySurnamePanel = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.NoteLabel = new System.Windows.Forms.Label();
+            this.NotificationIconPictureBox = new System.Windows.Forms.PictureBox();
             this.VKTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.VKLabel = new System.Windows.Forms.Label();
             this.DateOfBirthtextBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.DateOfBirthLabel = new System.Windows.Forms.Label();
             this.PhoneNumberTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.PhoneNumberLabel = new System.Windows.Forms.Label();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.EmailLabel = new System.Windows.Forms.Label();
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.FullNameLabel = new System.Windows.Forms.Label();
             this.PhotoPictureBox = new System.Windows.Forms.PictureBox();
             this.MainTableLayoutPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.PeopleListPanel.SuspendLayout();
             this.ButtonsTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RemoveContactButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddContactButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditContactButton)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.NotePanel.SuspendLayout();
             this.BirthdayPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NotificationIconPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PhotoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,8 +72,8 @@
             this.MainTableLayoutPanel.ColumnCount = 2;
             this.MainTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.MainTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.MainTableLayoutPanel.Controls.Add(this.panel1, 0, 0);
-            this.MainTableLayoutPanel.Controls.Add(this.panel2, 1, 0);
+            this.MainTableLayoutPanel.Controls.Add(this.PeopleListPanel, 0, 0);
+            this.MainTableLayoutPanel.Controls.Add(this.NotePanel, 1, 0);
             this.MainTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.MainTableLayoutPanel.Name = "MainTableLayoutPanel";
@@ -82,18 +82,18 @@
             this.MainTableLayoutPanel.Size = new System.Drawing.Size(800, 450);
             this.MainTableLayoutPanel.TabIndex = 0;
             // 
-            // panel1
+            // PeopleListPanel
             // 
-            this.panel1.Controls.Add(this.ButtonsTableLayoutPanel);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.FindTextBox);
-            this.panel1.Controls.Add(this.ContactsListBox);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(194, 444);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.PeopleListPanel.Controls.Add(this.ButtonsTableLayoutPanel);
+            this.PeopleListPanel.Controls.Add(this.FindLabel);
+            this.PeopleListPanel.Controls.Add(this.FindTextBox);
+            this.PeopleListPanel.Controls.Add(this.ContactsListBox);
+            this.PeopleListPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PeopleListPanel.Location = new System.Drawing.Point(3, 3);
+            this.PeopleListPanel.Name = "PeopleListPanel";
+            this.PeopleListPanel.Size = new System.Drawing.Size(194, 444);
+            this.PeopleListPanel.TabIndex = 0;
+            this.PeopleListPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // ButtonsTableLayoutPanel
             // 
@@ -156,15 +156,15 @@
             this.EditContactButton.MouseEnter += new System.EventHandler(this.EditContactButton_MouseEnter);
             this.EditContactButton.MouseLeave += new System.EventHandler(this.EditContactButton_MouseLeave);
             // 
-            // label1
+            // FindLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 15);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Find";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            this.FindLabel.AutoSize = true;
+            this.FindLabel.Location = new System.Drawing.Point(6, 7);
+            this.FindLabel.Name = "FindLabel";
+            this.FindLabel.Size = new System.Drawing.Size(30, 15);
+            this.FindLabel.TabIndex = 2;
+            this.FindLabel.Text = "Find";
+            this.FindLabel.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // FindTextBox
             // 
@@ -207,28 +207,28 @@
             this.ContactsListBox.Size = new System.Drawing.Size(191, 382);
             this.ContactsListBox.TabIndex = 0;
             // 
-            // panel2
+            // NotePanel
             // 
-            this.panel2.Controls.Add(this.BirthdayPanel);
-            this.panel2.Controls.Add(this.VKTextBox);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.DateOfBirthtextBox);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.PhoneNumberTextBox);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.EmailTextBox);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.FullNameTextBox);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.PhotoPictureBox);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.panel2.Location = new System.Drawing.Point(202, 2);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(596, 446);
-            this.panel2.TabIndex = 1;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.NotePanel.Controls.Add(this.BirthdayPanel);
+            this.NotePanel.Controls.Add(this.VKTextBox);
+            this.NotePanel.Controls.Add(this.VKLabel);
+            this.NotePanel.Controls.Add(this.DateOfBirthtextBox);
+            this.NotePanel.Controls.Add(this.DateOfBirthLabel);
+            this.NotePanel.Controls.Add(this.PhoneNumberTextBox);
+            this.NotePanel.Controls.Add(this.PhoneNumberLabel);
+            this.NotePanel.Controls.Add(this.EmailTextBox);
+            this.NotePanel.Controls.Add(this.EmailLabel);
+            this.NotePanel.Controls.Add(this.FullNameTextBox);
+            this.NotePanel.Controls.Add(this.FullNameLabel);
+            this.NotePanel.Controls.Add(this.PhotoPictureBox);
+            this.NotePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NotePanel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.NotePanel.Location = new System.Drawing.Point(202, 2);
+            this.NotePanel.Margin = new System.Windows.Forms.Padding(2);
+            this.NotePanel.Name = "NotePanel";
+            this.NotePanel.Size = new System.Drawing.Size(596, 446);
+            this.NotePanel.TabIndex = 1;
+            this.NotePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // BirthdayPanel
             // 
@@ -237,8 +237,8 @@
             this.BirthdayPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.BirthdayPanel.Controls.Add(this.BirthdayPanelCloseButton);
             this.BirthdayPanel.Controls.Add(this.BirthdaySurnamePanel);
-            this.BirthdayPanel.Controls.Add(this.label7);
-            this.BirthdayPanel.Controls.Add(this.pictureBox2);
+            this.BirthdayPanel.Controls.Add(this.NoteLabel);
+            this.BirthdayPanel.Controls.Add(this.NotificationIconPictureBox);
             this.BirthdayPanel.Location = new System.Drawing.Point(3, 368);
             this.BirthdayPanel.Name = "BirthdayPanel";
             this.BirthdayPanel.Size = new System.Drawing.Size(590, 75);
@@ -268,26 +268,26 @@
             this.BirthdaySurnamePanel.Text = "Абакумов, Петров, Иванов и др.";
             this.BirthdaySurnamePanel.Click += new System.EventHandler(this.label8_Click);
             // 
-            // label7
+            // NoteLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.label7.Location = new System.Drawing.Point(101, 21);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(118, 15);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Today is Birthday of:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.NoteLabel.AutoSize = true;
+            this.NoteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            this.NoteLabel.Location = new System.Drawing.Point(101, 21);
+            this.NoteLabel.Name = "NoteLabel";
+            this.NoteLabel.Size = new System.Drawing.Size(118, 15);
+            this.NoteLabel.TabIndex = 1;
+            this.NoteLabel.Text = "Today is Birthday of:";
+            this.NoteLabel.Click += new System.EventHandler(this.label7_Click);
             // 
-            // pictureBox2
+            // NotificationIconPictureBox
             // 
-            this.pictureBox2.Image = global::ContactsApp.View.Properties.Resources.info_48x48;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(80, 69);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.NotificationIconPictureBox.Image = global::ContactsApp.View.Properties.Resources.info_48x48;
+            this.NotificationIconPictureBox.Location = new System.Drawing.Point(3, 3);
+            this.NotificationIconPictureBox.Name = "NotificationIconPictureBox";
+            this.NotificationIconPictureBox.Size = new System.Drawing.Size(80, 69);
+            this.NotificationIconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.NotificationIconPictureBox.TabIndex = 0;
+            this.NotificationIconPictureBox.TabStop = false;
             // 
             // VKTextBox
             // 
@@ -296,16 +296,16 @@
             this.VKTextBox.Size = new System.Drawing.Size(150, 23);
             this.VKTextBox.TabIndex = 10;
             // 
-            // label6
+            // VKLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(104, 226);
-            this.label6.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(26, 15);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "VK:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.VKLabel.AutoSize = true;
+            this.VKLabel.Location = new System.Drawing.Point(104, 226);
+            this.VKLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.VKLabel.Name = "VKLabel";
+            this.VKLabel.Size = new System.Drawing.Size(26, 15);
+            this.VKLabel.TabIndex = 9;
+            this.VKLabel.Text = "VK:";
+            this.VKLabel.Click += new System.EventHandler(this.label6_Click);
             // 
             // DateOfBirthtextBox
             // 
@@ -314,15 +314,15 @@
             this.DateOfBirthtextBox.Size = new System.Drawing.Size(150, 23);
             this.DateOfBirthtextBox.TabIndex = 8;
             // 
-            // label5
+            // DateOfBirthLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(104, 172);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 15);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Date of Birth";
+            this.DateOfBirthLabel.AutoSize = true;
+            this.DateOfBirthLabel.Location = new System.Drawing.Point(104, 172);
+            this.DateOfBirthLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.DateOfBirthLabel.Name = "DateOfBirthLabel";
+            this.DateOfBirthLabel.Size = new System.Drawing.Size(80, 15);
+            this.DateOfBirthLabel.TabIndex = 7;
+            this.DateOfBirthLabel.Text = "Date of Birth";
             // 
             // PhoneNumberTextBox
             // 
@@ -333,16 +333,16 @@
             this.PhoneNumberTextBox.TabIndex = 6;
             this.PhoneNumberTextBox.Text = "+7 (999) 111-22-33";
             // 
-            // label4
+            // PhoneNumberLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(104, 118);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 15);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "PhoneNumber:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.PhoneNumberLabel.AutoSize = true;
+            this.PhoneNumberLabel.Location = new System.Drawing.Point(104, 118);
+            this.PhoneNumberLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.PhoneNumberLabel.Name = "PhoneNumberLabel";
+            this.PhoneNumberLabel.Size = new System.Drawing.Size(91, 15);
+            this.PhoneNumberLabel.TabIndex = 5;
+            this.PhoneNumberLabel.Text = "PhoneNumber:";
+            this.PhoneNumberLabel.Click += new System.EventHandler(this.label4_Click);
             // 
             // EmailTextBox
             // 
@@ -355,15 +355,15 @@
             this.EmailTextBox.TabIndex = 4;
             this.EmailTextBox.Text = "abakumov@no.mail";
             // 
-            // label3
+            // EmailLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(104, 62);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 15);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "E-mail:";
+            this.EmailLabel.AutoSize = true;
+            this.EmailLabel.Location = new System.Drawing.Point(104, 62);
+            this.EmailLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.EmailLabel.Name = "EmailLabel";
+            this.EmailLabel.Size = new System.Drawing.Size(44, 15);
+            this.EmailLabel.TabIndex = 3;
+            this.EmailLabel.Text = "E-mail:";
             // 
             // FullNameTextBox
             // 
@@ -376,14 +376,14 @@
             this.FullNameTextBox.TabIndex = 2;
             this.FullNameTextBox.Text = "Абакумов Дмитрий Николаевич";
             // 
-            // label2
+            // FullNameLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(104, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Full Name:";
+            this.FullNameLabel.AutoSize = true;
+            this.FullNameLabel.Location = new System.Drawing.Point(104, 8);
+            this.FullNameLabel.Name = "FullNameLabel";
+            this.FullNameLabel.Size = new System.Drawing.Size(65, 15);
+            this.FullNameLabel.TabIndex = 1;
+            this.FullNameLabel.Text = "Full Name:";
             // 
             // PhotoPictureBox
             // 
@@ -410,17 +410,17 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.MainTableLayoutPanel.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.PeopleListPanel.ResumeLayout(false);
+            this.PeopleListPanel.PerformLayout();
             this.ButtonsTableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RemoveContactButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddContactButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditContactButton)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.NotePanel.ResumeLayout(false);
+            this.NotePanel.PerformLayout();
             this.BirthdayPanel.ResumeLayout(false);
             this.BirthdayPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NotificationIconPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PhotoPictureBox)).EndInit();
             this.ResumeLayout(false);
 
@@ -429,27 +429,27 @@
         #endregion
 
         private TableLayoutPanel MainTableLayoutPanel;
-        private Panel panel1;
-        private Panel panel2;
+        private Panel PeopleListPanel;
+        private Panel NotePanel;
         private ListBox ContactsListBox;
-        private Label label1;
+        private Label FindLabel;
         private TextBox FindTextBox;
         private TableLayoutPanel ButtonsTableLayoutPanel;
         private PictureBox PhotoPictureBox;
         private TextBox VKTextBox;
-        private Label label6;
+        private Label VKLabel;
         private TextBox DateOfBirthtextBox;
-        private Label label5;
+        private Label DateOfBirthLabel;
         private TextBox PhoneNumberTextBox;
-        private Label label4;
+        private Label PhoneNumberLabel;
         private TextBox EmailTextBox;
-        private Label label3;
+        private Label EmailLabel;
         private TextBox FullNameTextBox;
-        private Label label2;
+        private Label FullNameLabel;
         private Panel BirthdayPanel;
         private Label BirthdaySurnamePanel;
-        private Label label7;
-        private PictureBox pictureBox2;
+        private Label NoteLabel;
+        private PictureBox NotificationIconPictureBox;
         private Button BirthdayPanelCloseButton;
         private PictureBox RemoveContactButton;
         private PictureBox AddContactButton;
