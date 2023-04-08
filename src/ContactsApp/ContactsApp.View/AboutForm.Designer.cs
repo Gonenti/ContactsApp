@@ -129,9 +129,12 @@
             // 
             // LicenseTextBox
             // 
+            this.LicenseTextBox.BackColor = System.Drawing.Color.White;
             this.LicenseTextBox.Location = new System.Drawing.Point(17, 178);
             this.LicenseTextBox.Multiline = true;
             this.LicenseTextBox.Name = "LicenseTextBox";
+            this.LicenseTextBox.ReadOnly = true;
+            this.LicenseTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.LicenseTextBox.Size = new System.Drawing.Size(495, 156);
             this.LicenseTextBox.TabIndex = 8;
             this.LicenseTextBox.Text = resources.GetString("LicenseTextBox.Text");
@@ -193,6 +196,7 @@
             this.Controls.Add(this.AuthorLabel);
             this.Controls.Add(this.VersionLlabel);
             this.Controls.Add(this.ContactsAppLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AboutForm";
             this.ShowIcon = false;
             this.OKPanel.ResumeLayout(false);
