@@ -38,7 +38,7 @@
             this.GmailLabel = new System.Windows.Forms.Label();
             this.GithubLinkLabel = new System.Windows.Forms.LinkLabel();
             this.LicenseTextBox = new System.Windows.Forms.TextBox();
-            this.PhotosFromLabel = new System.Windows.Forms.Label();
+            this.WhereWereThePhotosTakenLabel = new System.Windows.Forms.Label();
             this.IconLinkLabel = new System.Windows.Forms.LinkLabel();
             this.OKPanel = new System.Windows.Forms.Panel();
             this.OKButton = new System.Windows.Forms.Button();
@@ -139,14 +139,14 @@
             this.LicenseTextBox.TabIndex = 8;
             this.LicenseTextBox.Text = resources.GetString("LicenseTextBox.Text");
             // 
-            // PhotosFromLabel
+            // WhereWereThePhotosTakenLabel
             // 
-            this.PhotosFromLabel.AutoSize = true;
-            this.PhotosFromLabel.Location = new System.Drawing.Point(17, 337);
-            this.PhotosFromLabel.Name = "PhotosFromLabel";
-            this.PhotosFromLabel.Size = new System.Drawing.Size(216, 15);
-            this.PhotosFromLabel.TabIndex = 9;
-            this.PhotosFromLabel.Text = "All used  images are downloaded from: ";
+            this.WhereWereThePhotosTakenLabel.AutoSize = true;
+            this.WhereWereThePhotosTakenLabel.Location = new System.Drawing.Point(17, 337);
+            this.WhereWereThePhotosTakenLabel.Name = "WhereWereThePhotosTakenLabel";
+            this.WhereWereThePhotosTakenLabel.Size = new System.Drawing.Size(216, 15);
+            this.WhereWereThePhotosTakenLabel.TabIndex = 9;
+            this.WhereWereThePhotosTakenLabel.Text = "All used  images are downloaded from: ";
             // 
             // IconLinkLabel
             // 
@@ -186,7 +186,7 @@
             this.ClientSize = new System.Drawing.Size(524, 411);
             this.Controls.Add(this.OKPanel);
             this.Controls.Add(this.IconLinkLabel);
-            this.Controls.Add(this.PhotosFromLabel);
+            this.Controls.Add(this.WhereWereThePhotosTakenLabel);
             this.Controls.Add(this.LicenseTextBox);
             this.Controls.Add(this.GithubLinkLabel);
             this.Controls.Add(this.GmailLabel);
@@ -216,7 +216,7 @@
         private Label GmailLabel;
         private LinkLabel GithubLinkLabel;
         private TextBox LicenseTextBox;
-        private Label PhotosFromLabel;
+        private Label WhereWereThePhotosTakenLabel;
         private LinkLabel IconLinkLabel;
         private Panel OKPanel;
         private Button OKButton;
