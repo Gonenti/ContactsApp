@@ -49,7 +49,6 @@ namespace ContactsApp.View
             // Change the color of the link text by setting LinkVisited
             // to true.
             GithubLinkLabel.LinkVisited = true;
-            //Call the Process.Start method to open the default browser
             //with a URL:
             var parameter = new ProcessStartInfo { Verb = "open", FileName = "explorer", Arguments = "https://github.com/Gonenti" };
             Process.Start(parameter);
@@ -63,7 +62,6 @@ namespace ContactsApp.View
             // to true.
             GithubLinkLabel.LinkVisited = true;
             GithubLinkLabel.LinkArea = new LinkArea(11, 4);
-            //Call the Process.Start method to open the default browser
             //with a URL:
             var parameter = new ProcessStartInfo { Verb = "open", FileName = "explorer", Arguments = "https://disk.yandex.ru/d/xkREY5uu1A6czA" };
             Process.Start(parameter);

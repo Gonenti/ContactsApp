@@ -291,8 +291,10 @@
             // 
             // VKTextBox
             // 
+            this.VKTextBox.BackColor = System.Drawing.Color.White;
             this.VKTextBox.Location = new System.Drawing.Point(104, 244);
             this.VKTextBox.Name = "VKTextBox";
+            this.VKTextBox.ReadOnly = true;
             this.VKTextBox.Size = new System.Drawing.Size(150, 23);
             this.VKTextBox.TabIndex = 10;
             // 
@@ -309,8 +311,10 @@
             // 
             // DateOfBirthtextBox
             // 
+            this.DateOfBirthtextBox.BackColor = System.Drawing.Color.White;
             this.DateOfBirthtextBox.Location = new System.Drawing.Point(104, 190);
             this.DateOfBirthtextBox.Name = "DateOfBirthtextBox";
+            this.DateOfBirthtextBox.ReadOnly = true;
             this.DateOfBirthtextBox.Size = new System.Drawing.Size(150, 23);
             this.DateOfBirthtextBox.TabIndex = 8;
             // 
@@ -326,9 +330,11 @@
             // 
             // PhoneNumberTextBox
             // 
+            this.PhoneNumberTextBox.BackColor = System.Drawing.Color.White;
             this.PhoneNumberTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.PhoneNumberTextBox.Location = new System.Drawing.Point(104, 136);
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
+            this.PhoneNumberTextBox.ReadOnly = true;
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(150, 23);
             this.PhoneNumberTextBox.TabIndex = 6;
             this.PhoneNumberTextBox.Text = "+7 (999) 111-22-33";
@@ -348,9 +354,11 @@
             // 
             this.EmailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.EmailTextBox.BackColor = System.Drawing.Color.White;
             this.EmailTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.EmailTextBox.Location = new System.Drawing.Point(104, 82);
             this.EmailTextBox.Name = "EmailTextBox";
+            this.EmailTextBox.ReadOnly = true;
             this.EmailTextBox.Size = new System.Drawing.Size(489, 23);
             this.EmailTextBox.TabIndex = 4;
             this.EmailTextBox.Text = "abakumov@no.mail";
@@ -369,9 +377,11 @@
             // 
             this.FullNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.FullNameTextBox.BackColor = System.Drawing.Color.White;
             this.FullNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FullNameTextBox.Location = new System.Drawing.Point(104, 26);
             this.FullNameTextBox.Name = "FullNameTextBox";
+            this.FullNameTextBox.ReadOnly = true;
             this.FullNameTextBox.Size = new System.Drawing.Size(489, 23);
             this.FullNameTextBox.TabIndex = 2;
             this.FullNameTextBox.Text = "Абакумов Дмитрий Николаевич";
