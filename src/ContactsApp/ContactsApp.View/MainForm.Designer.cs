@@ -118,9 +118,10 @@
             // 
             this.RemoveContactButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RemoveContactButton.Image = global::ContactsApp.View.Properties.Resources.remove_contact_32x32_gray;
-            this.RemoveContactButton.Location = new System.Drawing.Point(129, 3);
+            this.RemoveContactButton.Location = new System.Drawing.Point(126, 0);
+            this.RemoveContactButton.Margin = new System.Windows.Forms.Padding(0);
             this.RemoveContactButton.Name = "RemoveContactButton";
-            this.RemoveContactButton.Size = new System.Drawing.Size(58, 24);
+            this.RemoveContactButton.Size = new System.Drawing.Size(64, 30);
             this.RemoveContactButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.RemoveContactButton.TabIndex = 2;
             this.RemoveContactButton.TabStop = false;
@@ -169,8 +170,9 @@
             // FindTextBox
             // 
             this.FindTextBox.Location = new System.Drawing.Point(45, 4);
+            this.FindTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.FindTextBox.Name = "FindTextBox";
-            this.FindTextBox.Size = new System.Drawing.Size(146, 23);
+            this.FindTextBox.Size = new System.Drawing.Size(149, 23);
             this.FindTextBox.TabIndex = 1;
             this.FindTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
