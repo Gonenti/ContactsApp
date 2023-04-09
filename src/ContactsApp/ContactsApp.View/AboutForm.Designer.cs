@@ -197,6 +197,8 @@
             this.Controls.Add(this.VersionLlabel);
             this.Controls.Add(this.ContactsAppLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(540, 450);
             this.Name = "AboutForm";
             this.ShowIcon = false;
             this.OKPanel.ResumeLayout(false);
