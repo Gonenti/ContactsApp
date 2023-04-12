@@ -133,7 +133,7 @@ namespace ContactsApp.View
 
         private void BirthdayPanelCloseButton_Click(object sender, EventArgs e)
         {
-            
+            BirthdayPanel.Visible= false;
         }
     }
 }
