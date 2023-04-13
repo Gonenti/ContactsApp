@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp.View", "ContactsApp.View\ContactsApp.View.csproj", "{63C5C612-F4C9-4537-A589-58E9F9C6F61D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactsApp.View", "ContactsApp.View\ContactsApp.View.csproj", "{63C5C612-F4C9-4537-A589-58E9F9C6F61D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp.Model", "ContactsApp.Model\ContactsApp.Model.csproj", "{D7A0F297-1B35-4ACD-BA67-DFA87DF1005D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactsApp.Model", "ContactsApp.Model\ContactsApp.Model.csproj", "{D7A0F297-1B35-4ACD-BA67-DFA87DF1005D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{E2F5EB0D-DC99-48DB-930C-DD8DA2310474}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
