@@ -172,7 +172,7 @@
             this.FindTextBox.Location = new System.Drawing.Point(45, 4);
             this.FindTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.FindTextBox.Name = "FindTextBox";
-            this.FindTextBox.Size = new System.Drawing.Size(149, 23);
+            this.FindTextBox.Size = new System.Drawing.Size(150, 23);
             this.FindTextBox.TabIndex = 1;
             this.FindTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
