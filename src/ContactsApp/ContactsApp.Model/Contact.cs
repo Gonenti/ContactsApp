@@ -15,7 +15,14 @@ namespace ContactsApp.Model
         private DateTime _dateOfBirth;
         private string _vkontakteId;
 
-        // constructor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Contact"/> class.
+        /// </summary>
+        /// <param name="fullName">The full name of the contact.</param>
+        /// <param name="email">The email address of the contact.</param>
+        /// <param name="phoneNumber">The phone number of the contact.</param>
+        /// <param name="dateOfBirth">The date of birth of the contact.</param>
+        /// <param name="vkontakteId">The VKontakte ID of the contact.</param>
         public Contact(string fullName, string email, string phoneNumber, DateTime dateOfBirth, string vkontakteId)
         {
             _fullName = fullName;
@@ -25,102 +32,55 @@ namespace ContactsApp.Model
             _vkontakteId = vkontakteId;
         }
 
-        // properties
+        /// <summary>
+        /// Gets or sets the full name of the contact.
+        /// </summary>
+
         public string FullName
         {
             get { return _fullName; }
-            set { _fullName = ValidateFullName(value); }
+            set { _fullName = Validator.ValidateFullName(value); }
         }
 
+        /// <summary>
+        /// Gets or sets the email address of the contact.
+        /// </summary>
         public string Email
         {
             get { return _email; }
-            set { _email = ValidateEmail(value); }
+            set { _email = Validator.ValidateEmail(value); }
         }
 
+        /// <summary>
+        /// Gets or sets the phone number of the contact.
+        /// </summary>
         public string PhoneNumber
         {
             get { return _phoneNumber; }
-            set { _phoneNumber = ValidatePhoneNumber(value); }
+            set { _phoneNumber = Validator.ValidatePhoneNumber(value); }
         }
 
+        /// <summary>
+        /// Gets or sets the date of birth of the contact.
+        /// </summary>
         public DateTime DateOfBirth
         {
             get { return _dateOfBirth; }
-            set { _dateOfBirth = ValidateDateOfBirth(value); }
+            set { _dateOfBirth = Validator.ValidateDateOfBirth(value); }
         }
 
+        /// <summary>
+        /// Gets or sets the VKontakte ID of the contact.
+        /// </summary>
         public string VkontakteId
         {
             get { return _vkontakteId; }
-            set { _vkontakteId = ValidateVkontakteId(value); }
+            set { _vkontakteId = Validator.ValidateVkontakteId(value); }
         }
 
-        // validation methods
-        private string ValidateFullName(string value)
-        {
-            if (string.IsNullOrEmpty(value))
-                throw new ArgumentException("Full name cannot be null or empty.");
-
-            if (value.Length > 100)
-                throw new ArgumentException("Full name cannot exceed 100 characters.");
-
-            // convert first letter of each word to upper case
-            string[] names = value.Split(' ');
-            for (int i = 0; i < names.Length; i++)
-            {
-                if (!string.IsNullOrEmpty(names[i]))
-                {
-                    char[] nameChars = names[i].ToCharArray();
-                    nameChars[0] = char.ToUpper(nameChars[0]);
-                    names[i] = new string(nameChars);
-                }
-            }
-            return string.Join(" ", names);
-        }
-
-        private string ValidateEmail(string value)
-        {
-            if (string.IsNullOrEmpty(value))
-                throw new ArgumentException("Email cannot be null or empty.");
-
-            if (value.Length > 100)
-                throw new ArgumentException("Email cannot exceed 100 characters.");
-
-            return value;
-        }
-
-        private string ValidatePhoneNumber(string value)
-        {
-            if (string.IsNullOrEmpty(value))
-                return value;
-
-            if (!Regex.IsMatch(value, @"^[0-9+()\- ]+$"))
-                throw new ArgumentException("Phone number can only contain digits and the characters '+', '(', ')', '-', and ' '.");
-
-            return value;
-        }
-
-        private DateTime ValidateDateOfBirth(DateTime value)
-        {
-            if (value.Year < 1900 || value > DateTime.Now)
-                throw new ArgumentException("Date of birth must be between 1900 and the current date.");
-
-            return value;
-        }
-
-        private string ValidateVkontakteId(string value)
-        {
-            if (string.IsNullOrEmpty(value))
-                return value;
-
-            if (value.Length > 50)
-                throw new ArgumentException("VKontakte ID cannot exceed 50 characters.");
-
-            return value;
-        }
-
-        // ICloneable implementation
+        /// <summary>
+        /// ICloneable implementation
+        /// </summary>
         public object Clone()
         {
             return new Contact(_fullName, _email, _phoneNumber, _dateOfBirth, _vkontakteId);

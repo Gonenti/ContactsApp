@@ -70,16 +70,17 @@
             // MainTableLayoutPanel
             // 
             this.MainTableLayoutPanel.ColumnCount = 2;
-            this.MainTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.MainTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 286F));
             this.MainTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.MainTableLayoutPanel.Controls.Add(this.PeopleListPanel, 0, 0);
             this.MainTableLayoutPanel.Controls.Add(this.NotePanel, 1, 0);
             this.MainTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.MainTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MainTableLayoutPanel.Name = "MainTableLayoutPanel";
             this.MainTableLayoutPanel.RowCount = 1;
             this.MainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.MainTableLayoutPanel.Size = new System.Drawing.Size(800, 450);
+            this.MainTableLayoutPanel.Size = new System.Drawing.Size(1143, 750);
             this.MainTableLayoutPanel.TabIndex = 0;
             // 
             // PeopleListPanel
@@ -89,11 +90,11 @@
             this.PeopleListPanel.Controls.Add(this.FindTextBox);
             this.PeopleListPanel.Controls.Add(this.ContactsListBox);
             this.PeopleListPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PeopleListPanel.Location = new System.Drawing.Point(3, 3);
+            this.PeopleListPanel.Location = new System.Drawing.Point(4, 5);
+            this.PeopleListPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PeopleListPanel.Name = "PeopleListPanel";
-            this.PeopleListPanel.Size = new System.Drawing.Size(194, 444);
+            this.PeopleListPanel.Size = new System.Drawing.Size(278, 740);
             this.PeopleListPanel.TabIndex = 0;
-            this.PeopleListPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // ButtonsTableLayoutPanel
             // 
@@ -106,22 +107,22 @@
             this.ButtonsTableLayoutPanel.Controls.Add(this.RemoveContactButton, 2, 0);
             this.ButtonsTableLayoutPanel.Controls.Add(this.AddContactButton, 0, 0);
             this.ButtonsTableLayoutPanel.Controls.Add(this.EditContactButton, 1, 0);
-            this.ButtonsTableLayoutPanel.Location = new System.Drawing.Point(3, 412);
+            this.ButtonsTableLayoutPanel.Location = new System.Drawing.Point(4, 687);
+            this.ButtonsTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ButtonsTableLayoutPanel.Name = "ButtonsTableLayoutPanel";
             this.ButtonsTableLayoutPanel.RowCount = 1;
             this.ButtonsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.ButtonsTableLayoutPanel.Size = new System.Drawing.Size(190, 30);
+            this.ButtonsTableLayoutPanel.Size = new System.Drawing.Size(272, 50);
             this.ButtonsTableLayoutPanel.TabIndex = 3;
-            this.ButtonsTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // RemoveContactButton
             // 
             this.RemoveContactButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RemoveContactButton.Image = global::ContactsApp.View.Properties.Resources.remove_contact_32x32_gray;
-            this.RemoveContactButton.Location = new System.Drawing.Point(126, 0);
+            this.RemoveContactButton.Location = new System.Drawing.Point(180, 0);
             this.RemoveContactButton.Margin = new System.Windows.Forms.Padding(0);
             this.RemoveContactButton.Name = "RemoveContactButton";
-            this.RemoveContactButton.Size = new System.Drawing.Size(64, 30);
+            this.RemoveContactButton.Size = new System.Drawing.Size(92, 50);
             this.RemoveContactButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.RemoveContactButton.TabIndex = 2;
             this.RemoveContactButton.TabStop = false;
@@ -135,7 +136,7 @@
             this.AddContactButton.Location = new System.Drawing.Point(0, 0);
             this.AddContactButton.Margin = new System.Windows.Forms.Padding(0);
             this.AddContactButton.Name = "AddContactButton";
-            this.AddContactButton.Size = new System.Drawing.Size(63, 30);
+            this.AddContactButton.Size = new System.Drawing.Size(90, 50);
             this.AddContactButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.AddContactButton.TabIndex = 3;
             this.AddContactButton.TabStop = false;
@@ -146,10 +147,10 @@
             // EditContactButton
             // 
             this.EditContactButton.Image = global::ContactsApp.View.Properties.Resources.edit_contact_32x32_gray;
-            this.EditContactButton.Location = new System.Drawing.Point(63, 0);
+            this.EditContactButton.Location = new System.Drawing.Point(90, 0);
             this.EditContactButton.Margin = new System.Windows.Forms.Padding(0);
             this.EditContactButton.Name = "EditContactButton";
-            this.EditContactButton.Size = new System.Drawing.Size(63, 30);
+            this.EditContactButton.Size = new System.Drawing.Size(90, 50);
             this.EditContactButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.EditContactButton.TabIndex = 4;
             this.EditContactButton.TabStop = false;
@@ -160,21 +161,20 @@
             // FindLabel
             // 
             this.FindLabel.AutoSize = true;
-            this.FindLabel.Location = new System.Drawing.Point(6, 7);
+            this.FindLabel.Location = new System.Drawing.Point(9, 12);
+            this.FindLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FindLabel.Name = "FindLabel";
-            this.FindLabel.Size = new System.Drawing.Size(30, 15);
+            this.FindLabel.Size = new System.Drawing.Size(46, 25);
             this.FindLabel.TabIndex = 2;
             this.FindLabel.Text = "Find";
-            this.FindLabel.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // FindTextBox
             // 
-            this.FindTextBox.Location = new System.Drawing.Point(45, 4);
-            this.FindTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.FindTextBox.Location = new System.Drawing.Point(64, 7);
+            this.FindTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 0, 5);
             this.FindTextBox.Name = "FindTextBox";
-            this.FindTextBox.Size = new System.Drawing.Size(150, 23);
+            this.FindTextBox.Size = new System.Drawing.Size(213, 31);
             this.FindTextBox.TabIndex = 1;
-            this.FindTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // ContactsListBox
             // 
@@ -183,7 +183,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ContactsListBox.FormattingEnabled = true;
             this.ContactsListBox.IntegralHeight = false;
-            this.ContactsListBox.ItemHeight = 15;
+            this.ContactsListBox.ItemHeight = 25;
             this.ContactsListBox.Items.AddRange(new object[] {
             "Дмитрий Ромашин",
             "Никита Прозоровский",
@@ -204,10 +204,12 @@
             "Кирилл Ковбас",
             "Егор Молотов\t",
             "Сергей Шанин"});
-            this.ContactsListBox.Location = new System.Drawing.Point(3, 32);
+            this.ContactsListBox.Location = new System.Drawing.Point(4, 53);
+            this.ContactsListBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ContactsListBox.Name = "ContactsListBox";
-            this.ContactsListBox.Size = new System.Drawing.Size(191, 382);
+            this.ContactsListBox.Size = new System.Drawing.Size(272, 634);
             this.ContactsListBox.TabIndex = 0;
+            this.ContactsListBox.SelectedIndexChanged += new System.EventHandler(this.ContactsListBox_SelectedIndexChanged);
             // 
             // NotePanel
             // 
@@ -225,12 +227,10 @@
             this.NotePanel.Controls.Add(this.PhotoPictureBox);
             this.NotePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.NotePanel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.NotePanel.Location = new System.Drawing.Point(202, 2);
-            this.NotePanel.Margin = new System.Windows.Forms.Padding(2);
+            this.NotePanel.Location = new System.Drawing.Point(289, 3);
             this.NotePanel.Name = "NotePanel";
-            this.NotePanel.Size = new System.Drawing.Size(596, 446);
+            this.NotePanel.Size = new System.Drawing.Size(851, 744);
             this.NotePanel.TabIndex = 1;
-            this.NotePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // BirthdayPanel
             // 
@@ -241,9 +241,10 @@
             this.BirthdayPanel.Controls.Add(this.BirthdaySurnamePanel);
             this.BirthdayPanel.Controls.Add(this.NoteLabel);
             this.BirthdayPanel.Controls.Add(this.NotificationIconPictureBox);
-            this.BirthdayPanel.Location = new System.Drawing.Point(3, 368);
+            this.BirthdayPanel.Location = new System.Drawing.Point(4, 614);
+            this.BirthdayPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BirthdayPanel.Name = "BirthdayPanel";
-            this.BirthdayPanel.Size = new System.Drawing.Size(590, 75);
+            this.BirthdayPanel.Size = new System.Drawing.Size(843, 125);
             this.BirthdayPanel.TabIndex = 11;
             // 
             // BirthdayPanelCloseButton
@@ -252,9 +253,10 @@
             this.BirthdayPanelCloseButton.FlatAppearance.BorderSize = 0;
             this.BirthdayPanelCloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BirthdayPanelCloseButton.Image = global::ContactsApp.View.Properties.Resources.close_32x32;
-            this.BirthdayPanelCloseButton.Location = new System.Drawing.Point(555, 3);
+            this.BirthdayPanelCloseButton.Location = new System.Drawing.Point(793, 5);
+            this.BirthdayPanelCloseButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BirthdayPanelCloseButton.Name = "BirthdayPanelCloseButton";
-            this.BirthdayPanelCloseButton.Size = new System.Drawing.Size(32, 32);
+            this.BirthdayPanelCloseButton.Size = new System.Drawing.Size(46, 53);
             this.BirthdayPanelCloseButton.TabIndex = 3;
             this.BirthdayPanelCloseButton.UseVisualStyleBackColor = true;
             this.BirthdayPanelCloseButton.Click += new System.EventHandler(this.BirthdayPanelCloseButton_Click);
@@ -263,30 +265,31 @@
             // 
             this.BirthdaySurnamePanel.AutoSize = true;
             this.BirthdaySurnamePanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.BirthdaySurnamePanel.Location = new System.Drawing.Point(101, 41);
+            this.BirthdaySurnamePanel.Location = new System.Drawing.Point(144, 68);
+            this.BirthdaySurnamePanel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BirthdaySurnamePanel.Name = "BirthdaySurnamePanel";
-            this.BirthdaySurnamePanel.Size = new System.Drawing.Size(192, 15);
+            this.BirthdaySurnamePanel.Size = new System.Drawing.Size(299, 25);
             this.BirthdaySurnamePanel.TabIndex = 2;
             this.BirthdaySurnamePanel.Text = "Абакумов, Петров, Иванов и др.";
-            this.BirthdaySurnamePanel.Click += new System.EventHandler(this.label8_Click);
             // 
             // NoteLabel
             // 
             this.NoteLabel.AutoSize = true;
             this.NoteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.NoteLabel.Location = new System.Drawing.Point(101, 21);
+            this.NoteLabel.Location = new System.Drawing.Point(144, 35);
+            this.NoteLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.NoteLabel.Name = "NoteLabel";
-            this.NoteLabel.Size = new System.Drawing.Size(118, 15);
+            this.NoteLabel.Size = new System.Drawing.Size(189, 25);
             this.NoteLabel.TabIndex = 1;
             this.NoteLabel.Text = "Today is Birthday of:";
-            this.NoteLabel.Click += new System.EventHandler(this.label7_Click);
             // 
             // NotificationIconPictureBox
             // 
             this.NotificationIconPictureBox.Image = global::ContactsApp.View.Properties.Resources.info_48x48;
-            this.NotificationIconPictureBox.Location = new System.Drawing.Point(3, 3);
+            this.NotificationIconPictureBox.Location = new System.Drawing.Point(4, 5);
+            this.NotificationIconPictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.NotificationIconPictureBox.Name = "NotificationIconPictureBox";
-            this.NotificationIconPictureBox.Size = new System.Drawing.Size(80, 69);
+            this.NotificationIconPictureBox.Size = new System.Drawing.Size(114, 115);
             this.NotificationIconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.NotificationIconPictureBox.TabIndex = 0;
             this.NotificationIconPictureBox.TabStop = false;
@@ -294,39 +297,40 @@
             // VKTextBox
             // 
             this.VKTextBox.BackColor = System.Drawing.Color.White;
-            this.VKTextBox.Location = new System.Drawing.Point(104, 244);
+            this.VKTextBox.Location = new System.Drawing.Point(149, 407);
+            this.VKTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.VKTextBox.Name = "VKTextBox";
             this.VKTextBox.ReadOnly = true;
-            this.VKTextBox.Size = new System.Drawing.Size(150, 23);
+            this.VKTextBox.Size = new System.Drawing.Size(213, 31);
             this.VKTextBox.TabIndex = 10;
             // 
             // VKLabel
             // 
             this.VKLabel.AutoSize = true;
-            this.VKLabel.Location = new System.Drawing.Point(104, 226);
-            this.VKLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.VKLabel.Location = new System.Drawing.Point(149, 377);
+            this.VKLabel.Margin = new System.Windows.Forms.Padding(4, 17, 4, 0);
             this.VKLabel.Name = "VKLabel";
-            this.VKLabel.Size = new System.Drawing.Size(26, 15);
+            this.VKLabel.Size = new System.Drawing.Size(41, 25);
             this.VKLabel.TabIndex = 9;
             this.VKLabel.Text = "VK:";
-            this.VKLabel.Click += new System.EventHandler(this.label6_Click);
             // 
             // DateOfBirthtextBox
             // 
             this.DateOfBirthtextBox.BackColor = System.Drawing.Color.White;
-            this.DateOfBirthtextBox.Location = new System.Drawing.Point(104, 190);
+            this.DateOfBirthtextBox.Location = new System.Drawing.Point(149, 317);
+            this.DateOfBirthtextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DateOfBirthtextBox.Name = "DateOfBirthtextBox";
             this.DateOfBirthtextBox.ReadOnly = true;
-            this.DateOfBirthtextBox.Size = new System.Drawing.Size(150, 23);
+            this.DateOfBirthtextBox.Size = new System.Drawing.Size(213, 31);
             this.DateOfBirthtextBox.TabIndex = 8;
             // 
             // DateOfBirthLabel
             // 
             this.DateOfBirthLabel.AutoSize = true;
-            this.DateOfBirthLabel.Location = new System.Drawing.Point(104, 172);
-            this.DateOfBirthLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.DateOfBirthLabel.Location = new System.Drawing.Point(149, 287);
+            this.DateOfBirthLabel.Margin = new System.Windows.Forms.Padding(4, 17, 4, 0);
             this.DateOfBirthLabel.Name = "DateOfBirthLabel";
-            this.DateOfBirthLabel.Size = new System.Drawing.Size(80, 15);
+            this.DateOfBirthLabel.Size = new System.Drawing.Size(123, 25);
             this.DateOfBirthLabel.TabIndex = 7;
             this.DateOfBirthLabel.Text = "Date of Birth";
             // 
@@ -334,23 +338,23 @@
             // 
             this.PhoneNumberTextBox.BackColor = System.Drawing.Color.White;
             this.PhoneNumberTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PhoneNumberTextBox.Location = new System.Drawing.Point(104, 136);
+            this.PhoneNumberTextBox.Location = new System.Drawing.Point(149, 227);
+            this.PhoneNumberTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.ReadOnly = true;
-            this.PhoneNumberTextBox.Size = new System.Drawing.Size(150, 23);
+            this.PhoneNumberTextBox.Size = new System.Drawing.Size(213, 31);
             this.PhoneNumberTextBox.TabIndex = 6;
             this.PhoneNumberTextBox.Text = "+7 (999) 111-22-33";
             // 
             // PhoneNumberLabel
             // 
             this.PhoneNumberLabel.AutoSize = true;
-            this.PhoneNumberLabel.Location = new System.Drawing.Point(104, 118);
-            this.PhoneNumberLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.PhoneNumberLabel.Location = new System.Drawing.Point(149, 197);
+            this.PhoneNumberLabel.Margin = new System.Windows.Forms.Padding(4, 17, 4, 0);
             this.PhoneNumberLabel.Name = "PhoneNumberLabel";
-            this.PhoneNumberLabel.Size = new System.Drawing.Size(91, 15);
+            this.PhoneNumberLabel.Size = new System.Drawing.Size(141, 25);
             this.PhoneNumberLabel.TabIndex = 5;
             this.PhoneNumberLabel.Text = "PhoneNumber:";
-            this.PhoneNumberLabel.Click += new System.EventHandler(this.label4_Click);
             // 
             // EmailTextBox
             // 
@@ -358,20 +362,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EmailTextBox.BackColor = System.Drawing.Color.White;
             this.EmailTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EmailTextBox.Location = new System.Drawing.Point(104, 82);
+            this.EmailTextBox.Location = new System.Drawing.Point(149, 137);
+            this.EmailTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.ReadOnly = true;
-            this.EmailTextBox.Size = new System.Drawing.Size(489, 23);
+            this.EmailTextBox.Size = new System.Drawing.Size(697, 31);
             this.EmailTextBox.TabIndex = 4;
             this.EmailTextBox.Text = "abakumov@no.mail";
             // 
             // EmailLabel
             // 
             this.EmailLabel.AutoSize = true;
-            this.EmailLabel.Location = new System.Drawing.Point(104, 62);
-            this.EmailLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.EmailLabel.Location = new System.Drawing.Point(149, 103);
+            this.EmailLabel.Margin = new System.Windows.Forms.Padding(4, 17, 4, 0);
             this.EmailLabel.Name = "EmailLabel";
-            this.EmailLabel.Size = new System.Drawing.Size(44, 15);
+            this.EmailLabel.Size = new System.Drawing.Size(70, 25);
             this.EmailLabel.TabIndex = 3;
             this.EmailLabel.Text = "E-mail:";
             // 
@@ -381,44 +386,47 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FullNameTextBox.BackColor = System.Drawing.Color.White;
             this.FullNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FullNameTextBox.Location = new System.Drawing.Point(104, 26);
+            this.FullNameTextBox.Location = new System.Drawing.Point(149, 43);
+            this.FullNameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FullNameTextBox.Name = "FullNameTextBox";
             this.FullNameTextBox.ReadOnly = true;
-            this.FullNameTextBox.Size = new System.Drawing.Size(489, 23);
+            this.FullNameTextBox.Size = new System.Drawing.Size(697, 31);
             this.FullNameTextBox.TabIndex = 2;
             this.FullNameTextBox.Text = "Абакумов Дмитрий Николаевич";
             // 
             // FullNameLabel
             // 
             this.FullNameLabel.AutoSize = true;
-            this.FullNameLabel.Location = new System.Drawing.Point(104, 8);
+            this.FullNameLabel.Location = new System.Drawing.Point(149, 13);
+            this.FullNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FullNameLabel.Name = "FullNameLabel";
-            this.FullNameLabel.Size = new System.Drawing.Size(65, 15);
+            this.FullNameLabel.Size = new System.Drawing.Size(102, 25);
             this.FullNameLabel.TabIndex = 1;
             this.FullNameLabel.Text = "Full Name:";
             // 
             // PhotoPictureBox
             // 
             this.PhotoPictureBox.Image = global::ContactsApp.View.Properties.Resources.photo_placeholder_100x100;
-            this.PhotoPictureBox.Location = new System.Drawing.Point(-2, 5);
+            this.PhotoPictureBox.Location = new System.Drawing.Point(-3, 8);
+            this.PhotoPictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PhotoPictureBox.Name = "PhotoPictureBox";
-            this.PhotoPictureBox.Size = new System.Drawing.Size(100, 100);
+            this.PhotoPictureBox.Size = new System.Drawing.Size(143, 167);
             this.PhotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.PhotoPictureBox.TabIndex = 0;
             this.PhotoPictureBox.TabStop = false;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1143, 750);
             this.Controls.Add(this.MainTableLayoutPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "ContactForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.MainTableLayoutPanel.ResumeLayout(false);
