@@ -13,8 +13,10 @@ namespace ContactsApp.View
 
         
         public MainForm()
-        {   
+        {
             InitializeComponent();
+            var form = new ContactForm();
+            form.ShowDialog();
         }
 
         /// <summary>

@@ -23,7 +23,11 @@ namespace ContactsApp.Model
         /// <param name="phoneNumber">The phone number of the contact.</param>
         /// <param name="dateOfBirth">The date of birth of the contact.</param>
         /// <param name="vkontakteId">The VKontakte ID of the contact.</param>
-        public Contact(string fullName, string email, string phoneNumber, DateTime dateOfBirth, string vkontakteId)
+        public Contact(string fullName, 
+            string email, 
+            string phoneNumber, 
+            DateTime dateOfBirth, 
+            string vkontakteId)
         {
             _fullName = fullName;
             _email = email;
