@@ -71,9 +71,10 @@ namespace ContactsApp.Model
                 return value;
 
             if (!Regex.IsMatch(value, @"^[0-9+()\- ]+$"))
-                throw new ArgumentException("Phone number can only contain digits and the characters '+', '(', ')', '-', and ' '.");
-            if (value.Length > 11)
-                throw new ArgumentException("Must be more than 11 digits");
+                throw new ArgumentException("Phone number can only contain digits and the characters" +
+                                            "'+', '(', ')', '-', and ' '.");
+            if (value.Length > 12 || value.Length < 12)
+                throw new ArgumentException("There should be 11 digits");
 
                 return value;
         }

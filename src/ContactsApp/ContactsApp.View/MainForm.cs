@@ -1,11 +1,7 @@
-using System;
-using System.CodeDom.Compiler;
-using System.Drawing;
-using System.Reflection;
-using System.Windows.Forms;
 using ContactsApp.Model;
 namespace ContactsApp.View
 {
+    using ContactsApp.Model;
     public partial class MainForm : Form
     {
         private Random random = new Random();
@@ -15,8 +11,6 @@ namespace ContactsApp.View
         public MainForm()
         {
             InitializeComponent();
-            var form = new ContactForm();
-            form.ShowDialog();
         }
 
         /// <summary>
@@ -105,8 +99,8 @@ namespace ContactsApp.View
             
             AddContact();
             UpdateList();
-            //var form = new ContactForm();
-            //form.ShowDialog();
+            var form = new ContactForm();
+            form.ShowDialog();
         }
 
         /// <summary>
@@ -257,11 +251,6 @@ namespace ContactsApp.View
             {
                 e.Cancel = true;
             }
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -1,18 +1,10 @@
-﻿using ContactsApp.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
-
-namespace ContactsApp.View
+﻿namespace ContactsApp.View
 {
+    using ContactsApp.Model;
+
+    /// <summary>
+    /// The ContactForm class represents the form  editing contact.
+    /// </summary>
     public partial class ContactForm : Form
     {
         private Color WhiteColor = Color.White;
@@ -25,27 +17,19 @@ namespace ContactsApp.View
         private Contact _contact = new Contact(Generator.FullName(), 
             Generator.Email(),Generator.PhoneNumber(),
             Generator.TimeStamp(),Generator.VkId());
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContactForm"/> class.
+        /// </summary>
         public ContactForm()
         {
             InitializeComponent();
             UpdateForm();
         }
 
-        private void ContactForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Filling form fields with data from _contact
+        /// </summary>
         private void UpdateForm()
         {
 
@@ -66,18 +50,33 @@ namespace ContactsApp.View
             AddPhotoPictureBox.Image = Properties.Resources.add_photo_32x32_gray;
         }
 
+        /// <summary>
+        /// Handles the Click event of the OkButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OkButton_Click(object sender, EventArgs e)
         {
             if(!checkFormOnErrors())
                 this.Close();
         }
 
+        /// <summary>
+        /// Handles the Click event of the CancelButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
 
         }
 
+        /// <summary>
+        /// Handles the TextChanged event of the FullNameTextBox control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {
             FullNameTextBox.BackColor = WhiteColor;
@@ -92,6 +91,11 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Handles the TextChanged event of the EmailTextBox control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void EmailTextBox_TextChanged(object sender, EventArgs e)
         {
             EmailTextBox.BackColor = WhiteColor;
@@ -106,6 +110,11 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Handles the TextChanged event of the PhoneNumberTextBox control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
         {
             PhoneNumberTextBox.BackColor = WhiteColor;
@@ -120,6 +129,11 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Handles the TextChanged event of the VKTextBox control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void VKTextBox_TextChanged(object sender, EventArgs e)
         {
             VKTextBox.BackColor = WhiteColor;
@@ -134,6 +148,9 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Сhecking the form for errors
+        /// </summary>
         private bool checkFormOnErrors()
         {
             string error = "";
