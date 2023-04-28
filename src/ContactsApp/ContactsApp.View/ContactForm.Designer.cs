@@ -123,7 +123,6 @@
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(213, 31);
             this.PhoneNumberTextBox.TabIndex = 17;
-            this.PhoneNumberTextBox.Text = "+7 (999) 111-22-33";
             this.PhoneNumberTextBox.TextChanged += new System.EventHandler(this.PhoneNumberTextBox_TextChanged);
             // 
             // PhoneNumberLabel
@@ -147,7 +146,6 @@
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(561, 31);
             this.EmailTextBox.TabIndex = 15;
-            this.EmailTextBox.Text = "abakumov@no.mail";
             this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
             // 
             // EmailLabel
@@ -171,7 +169,6 @@
             this.FullNameTextBox.Name = "FullNameTextBox";
             this.FullNameTextBox.Size = new System.Drawing.Size(561, 31);
             this.FullNameTextBox.TabIndex = 13;
-            this.FullNameTextBox.Text = "Абакумов Дмитрий Николаевич";
             this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
             // 
             // FullNameLabel

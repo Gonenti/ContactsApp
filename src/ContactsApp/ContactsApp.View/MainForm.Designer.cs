@@ -184,26 +184,6 @@
             this.ContactsListBox.FormattingEnabled = true;
             this.ContactsListBox.IntegralHeight = false;
             this.ContactsListBox.ItemHeight = 25;
-            this.ContactsListBox.Items.AddRange(new object[] {
-            "Дмитрий Ромашин",
-            "Никита Прозоровский",
-            "Михаэль Штокхаузе",
-            "Денис Медведев",
-            "Александр Вартанов",
-            "Анита Пудикова",
-            "Татьяна Шитова",
-            "Наталья Усцова",
-            "Марина Гиоргадзе",
-            "Дарья Семёнова",
-            "Ирина Шанаева",
-            "Лариса Филатова",
-            "Марина Руденко",
-            "Александра Верхошанская",
-            "Виктор Петров",
-            "Олег Курсачёв",
-            "Кирилл Ковбас",
-            "Егор Молотов\t",
-            "Сергей Шанин"});
             this.ContactsListBox.Location = new System.Drawing.Point(4, 53);
             this.ContactsListBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ContactsListBox.Name = "ContactsListBox";
@@ -344,7 +324,6 @@
             this.PhoneNumberTextBox.ReadOnly = true;
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(213, 31);
             this.PhoneNumberTextBox.TabIndex = 6;
-            this.PhoneNumberTextBox.Text = "+7 (999) 111-22-33";
             // 
             // PhoneNumberLabel
             // 
@@ -368,7 +347,6 @@
             this.EmailTextBox.ReadOnly = true;
             this.EmailTextBox.Size = new System.Drawing.Size(697, 31);
             this.EmailTextBox.TabIndex = 4;
-            this.EmailTextBox.Text = "abakumov@no.mail";
             // 
             // EmailLabel
             // 
@@ -392,7 +370,6 @@
             this.FullNameTextBox.ReadOnly = true;
             this.FullNameTextBox.Size = new System.Drawing.Size(697, 31);
             this.FullNameTextBox.TabIndex = 2;
-            this.FullNameTextBox.Text = "Абакумов Дмитрий Николаевич";
             // 
             // FullNameLabel
             // 
