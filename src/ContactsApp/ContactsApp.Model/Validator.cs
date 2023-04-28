@@ -50,6 +50,11 @@ namespace ContactsApp.Model
 
             if (value.Length > 100)
                 throw new ArgumentException("Email cannot exceed 100 characters.");
+            if(!value.Contains("@") &
+                (value.Contains("gmail.com") || value.Contains("yahoo.com") ||
+                 value.Contains("hotmail.com") || value.Contains("aol.com") ||
+                 value.Contains("outlook.com") || value.Contains("icloud.com")))
+                throw new ArgumentException("Incorrect email.");
 
             return value;
         }
@@ -67,8 +72,10 @@ namespace ContactsApp.Model
 
             if (!Regex.IsMatch(value, @"^[0-9+()\- ]+$"))
                 throw new ArgumentException("Phone number can only contain digits and the characters '+', '(', ')', '-', and ' '.");
+            if (value.Length > 11)
+                throw new ArgumentException("Must be more than 11 digits");
 
-            return value;
+                return value;
         }
 
         /// <summary>
@@ -99,6 +106,8 @@ namespace ContactsApp.Model
             if (value.Length > 50)
                 throw new ArgumentException("VKontakte ID cannot exceed 50 characters.");
 
+            if (!value.StartsWith("https://vk.com/id"))
+                throw new ArgumentException("this address cannot be vk id");
             return value;
         }
     }

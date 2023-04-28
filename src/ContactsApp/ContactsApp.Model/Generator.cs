@@ -85,13 +85,8 @@ namespace ContactsApp.Model
             int daysInMonth = DateTime.DaysInMonth(year, month);
             int day = random.Next(1, daysInMonth + 1);
 
-            // Generate a random hour, minute, and second
-            int hour = random.Next(24);
-            int minute = random.Next(60);
-            int second = random.Next(60);
-
             // Create the DateTime object using the randomly generated values
-            DateTime randomDateTime = new DateTime(year, month, day, hour, minute, second);
+            DateTime randomDateTime = new DateTime(year, month, day);
 
             return randomDateTime;
         }
