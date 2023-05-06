@@ -13,10 +13,10 @@
         public static string ValidateFullName(string value)
         {
             if (string.IsNullOrEmpty(value))
-                throw new ArgumentException("Full name cannot be null or empty.");
+                throw new ArgumentException("NameError: Full name cannot be null or empty.\n");
 
             if (value.Length > 100)
-                throw new ArgumentException("Full name cannot exceed 100 characters.");
+                throw new ArgumentException("NameError: Full name cannot exceed 100 characters.\n");
 
             // convert first letter of each word to upper case
             string[] names = value.Split(' ');
@@ -41,10 +41,10 @@
         public static string ValidateEmail(string value)
         {
             if (string.IsNullOrEmpty(value))
-                throw new ArgumentException("Email cannot be null or empty.");
+                throw new ArgumentException("EmailError: Email cannot be null or empty.\n");
 
             if (value.Length > 100)
-                throw new ArgumentException("Email cannot exceed 100 characters.");
+                throw new ArgumentException("EmailError: Email cannot exceed 100 characters.\n");
 
             try
             {
@@ -52,7 +52,7 @@
             }
             catch
             {
-                throw new ArgumentException("Incorrect email.");
+                throw new ArgumentException("EmailError: Incorrect email.\n");
             }
 
             return value;
@@ -70,10 +70,10 @@
                 return value;
 
             if (!Regex.IsMatch(value, @"^[0-9+()\- ]+$"))
-                throw new ArgumentException("Phone number can only contain digits and the characters" +
-                                            "'+', '(', ')', '-', and ' '.");
+                throw new ArgumentException("PhoneNumberError: Phone number can only contain digits and the characters" +
+                                            "'+', '(', ')', '-', and ' '.\n");
             if (value.Length > 12 || value.Length < 12)
-                throw new ArgumentException("There should be 11 digits");
+                throw new ArgumentException("PhoneNumberError: There should be 11 digits\n");
 
                 return value;
         }
@@ -87,7 +87,7 @@
         public static DateTime ValidateDateOfBirth(DateTime value)
         {
             if (value.Year < 1900 || value > DateTime.Now)
-                throw new ArgumentException("Date of birth must be between 1900 and the current date.");
+                throw new ArgumentException("Date of birth must be between 1900 and the current date.\n");
 
             return value;
         }
@@ -104,7 +104,7 @@
                 return value;
 
             if (value.Length > 50)
-                throw new ArgumentException("VKontakte ID cannot exceed 50 characters.");
+                throw new ArgumentException("VKError: VKontakte ID cannot exceed 50 characters.\n");
             return value;
         }
     }

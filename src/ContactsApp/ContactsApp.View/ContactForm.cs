@@ -177,26 +177,7 @@
         /// </summary>
         private bool isErrorsOnForm()
         {
-            string error = "";
-            if (FullNameError != "")
-            {
-                error += $"NameError: {FullNameError}\n";
-            }
-
-            if (EmailError != "")
-            {
-                error += $"EmailError: {EmailError}\n";
-            }
-
-            if (PhoneNumberError != "")
-            {
-                error += $"PhoneNumberError: {PhoneNumberError}\n";
-            }
-
-            if (VKError != "")
-            {
-                error += $"VKError: {VKError}\n";
-            }
+            string error = FullNameError + EmailError + PhoneNumberError + VKError;
 
             if (error == "")
                 return false;
