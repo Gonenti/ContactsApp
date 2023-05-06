@@ -2,6 +2,10 @@
 {
     public class Contact : ICloneable
     {
+        /// <summary>
+        /// Represents personal information for a user, including their full name, email address, phone number,
+        /// date of birth, and VKontakte ID.
+        /// </summary>
         private string _fullName;
         private string _email;
         private string _phoneNumber;

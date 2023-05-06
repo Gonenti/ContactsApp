@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-
-namespace ContactsApp.Model
+﻿namespace ContactsApp.Model
 {
+    using System.Net.Mail;
+    using System.Text.RegularExpressions;
     public static class Validator
     {
         /// <summary>
@@ -50,11 +45,15 @@ namespace ContactsApp.Model
 
             if (value.Length > 100)
                 throw new ArgumentException("Email cannot exceed 100 characters.");
-            if(!value.Contains("@") &
-                (value.Contains("gmail.com") || value.Contains("yahoo.com") ||
-                 value.Contains("hotmail.com") || value.Contains("aol.com") ||
-                 value.Contains("outlook.com") || value.Contains("icloud.com")))
+
+            try
+            {
+                var emailAddress = new MailAddress(value);
+            }
+            catch
+            {
                 throw new ArgumentException("Incorrect email.");
+            }
 
             return value;
         }
@@ -106,9 +105,6 @@ namespace ContactsApp.Model
 
             if (value.Length > 50)
                 throw new ArgumentException("VKontakte ID cannot exceed 50 characters.");
-
-            if (!value.StartsWith("https://vk.com/id"))
-                throw new ArgumentException("this address cannot be vk id");
             return value;
         }
     }

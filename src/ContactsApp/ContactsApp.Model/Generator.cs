@@ -1,20 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ContactsApp.Model
+﻿namespace ContactsApp.Model
 {
+    /// <summary>
+    /// Generates random contact information.
+    /// </summary>
     public static class Generator
     {
+        /// <summary>
+        /// Generates a random phone number in the format of +xxxxxxxxxx.
+        /// </summary>
+        /// <returns>A string containing the generated phone number.</returns>
         public static string PhoneNumber()
         {
             Random random = new Random();
             return "+" + random.Next(10000, 99999).ToString() + random.Next(100000, 999999).ToString();
         }
 
-        public static string FullName()
+        /// <summary>
+        /// Generates a random full name.
+        /// </summary>
+        /// <returns>A string containing the generated full name.</returns>
+        private static string FullName()
         {
             string[] popularNames = {
                 "Emma", "Liam", "Olivia", "Noah", "Ava", "Ethan", "Isabella", "Sophia", "Mason", "Mia",
@@ -45,13 +50,15 @@ namespace ContactsApp.Model
             return popularNames[random.Next(popularNames.Length)] + " " + popularSurnames[random.Next(popularSurnames.Length)];
         }
 
-        public static string Email()
+        /// <summary>
+        /// Generates a random email address.
+        /// </summary>
+        /// <returns>A string that represents the email address.</returns>
+        private static string Email()
         {
-            // Array of common email providers
             string[] emailProviders = { "gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "aol.com", "icloud.com" };
 
-            // Array of possible characters for the username
-            string[] usernameChars = { "abcdefghijklmnopqrstuvwxyz", "0123456789", "_-." };
+            string[] usernameChars = { "abcdefghijklmnopqrstuvwxyz", "0123456789", "_-" };
 
             Random random = new Random();
 
@@ -62,39 +69,53 @@ namespace ContactsApp.Model
                 username += charSet[random.Next(charSet.Length)];
             }
 
-            // Randomly select an email provider
             string emailProvider = emailProviders[random.Next(emailProviders.Length)];
 
-            // Combine the username and email provider to create the email address
             string email = $"{username}@{emailProvider}";
 
             return email;
         }
 
-        public static DateTime TimeStamp()
+        /// <summary>
+        /// Generates a random date and time between January 1, 1900, and December 31, 2023.
+        /// </summary>
+        /// <returns>A DateTime object that represents the generated date and time.</returns>
+        private static DateTime TimeStamp()
         {
-            // Set the range of years you want to generate a DateTime within
             int minYear = 1900;
             int maxYear = 2023;
 
             Random random = new Random();
 
-            // Generate a random year, month, and day
             int year = random.Next(minYear, maxYear);
             int month = random.Next(1, 13);
             int daysInMonth = DateTime.DaysInMonth(year, month);
             int day = random.Next(1, daysInMonth + 1);
 
-            // Create the DateTime object using the randomly generated values
             DateTime randomDateTime = new DateTime(year, month, day);
 
             return randomDateTime;
         }
 
-        public static string VkId()
+        /// <summary>
+        /// Generates a random VK ID.
+        /// </summary>
+        /// <returns>A string that represents the VK ID.</returns>
+        private static string VkId()
         {
             Random random = new Random();
-            return "https://vk.com/id" + random.Next(10000, 99999);
+            return "id" + random.Next(10000, 99999);
+        }
+
+        /// <summary>
+        /// Generates a new Contact object with randomly generated values.
+        /// </summary>
+        /// <returns>A Contact object with randomly generated values.</returns>
+        public static Contact getContact()
+        {
+            return new Contact(FullName(),
+            Email(), PhoneNumber(),
+            TimeStamp(), VkId());
         }
     }
 }

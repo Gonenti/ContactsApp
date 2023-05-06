@@ -1,10 +1,11 @@
-using ContactsApp.Model;
 namespace ContactsApp.View
 {
     using ContactsApp.Model;
     public partial class MainForm : Form
     {
-        private Random random = new Random();
+        /// <summary>
+        /// Creating a new object of type project
+        /// </summary>
         private Project _project = new Project();
 
         
@@ -31,7 +32,7 @@ namespace ContactsApp.View
         /// <param name="index">The index of the selected contact.</param>
         private void UpdateSelectedObject(int index)
         {
-            List<Contact> contacts = _project.GetAllContacts();
+            List<Contact> contacts = _project.AllContacts;
 
             FullNameTextBox.Text = contacts[index].FullName;
             EmailTextBox.Text = contacts[index].Email;
@@ -49,7 +50,7 @@ namespace ContactsApp.View
         {
             if (index == -1) return;
 
-            List<Contact> contacts = _project.GetAllContacts();
+            List<Contact> contacts = _project.AllContacts;
             if (MessageBox.Show($"Do you really want to remove {contacts[index].FullName}", 
                 "Delete contact",
                 MessageBoxButtons.OKCancel) 
@@ -65,9 +66,7 @@ namespace ContactsApp.View
         /// </summary>
         private void AddContact()
         {
-            Contact contact = new Contact(Generator.FullName(), Generator.Email(), 
-                                        Generator.PhoneNumber(), Generator.TimeStamp(),
-                                        Generator.VkId());
+            Contact contact = Generator.getContact();
             _project.AddContact(contact);
         }
 
@@ -80,7 +79,7 @@ namespace ContactsApp.View
             ContactsListBox.Items.Clear();
 
             // Get the contacts from the project
-            List<Contact> contacts = _project.GetAllContacts();
+            List<Contact> contacts = _project.AllContacts;
 
             // Add the last name of each contact to the list
             foreach (Contact contact in contacts)
@@ -133,6 +132,46 @@ namespace ContactsApp.View
         {
             AddContactButton.Image = Properties.Resources.add_contact_32x32;
             AddContactButton.BackColor = System.Drawing.ColorTranslator.FromHtml("#F5F5FF");
+        }
+
+
+        /// <summary>
+        /// Handles the KeyDown event for the MainForm and shows the AboutForm when the F1 key is pressed.
+        /// </summary>
+        /// <param name="sender">The object that raised the event.</param>
+        /// <param name="e">The KeyEventArgs for the event.</param>
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                var form = new AboutForm();
+                form.Show();
+            }
+        }
+
+        /// <summary>
+        /// Handles the FormClosing event of the MainForm control.
+        /// Asks the user to confirm the exit action.
+        /// If the user selects Yes, exits the application.
+        /// Otherwise, cancels the closing event.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to exit the application?",
+                "Confirm Exit",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.ExitThread();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
 
         /// <summary>
@@ -191,20 +230,6 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Handles the KeyDown event for the MainForm and shows the AboutForm when the F1 key is pressed.
-        /// </summary>
-        /// <param name="sender">The object that raised the event.</param>
-        /// <param name="e">The KeyEventArgs for the event.</param>
-        private void MainForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.F1)
-            {
-                var form = new AboutForm();
-                form.Show();
-            }
-        }
-
-        /// <summary>
         /// Handles the Click event of the BirthdayPanelCloseButton control.
         /// Hides the birthday panel.
         /// </summary>
@@ -212,7 +237,7 @@ namespace ContactsApp.View
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void BirthdayPanelCloseButton_Click(object sender, EventArgs e)
         {
-            BirthdayPanel.Visible= false;
+            BirthdayPanel.Visible = false;
         }
 
         /// <summary>
@@ -226,31 +251,6 @@ namespace ContactsApp.View
         {
             if (ContactsListBox.SelectedIndex == -1) ClearSelectedObject();
             UpdateSelectedObject(ContactsListBox.SelectedIndex);
-        }
-
-        /// <summary>
-        /// Handles the FormClosing event of the MainForm control.
-        /// Asks the user to confirm the exit action.
-        /// If the user selects Yes, exits the application.
-        /// Otherwise, cancels the closing event.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult result = MessageBox.Show(
-                "Are you sure you want to exit the application?",
-                "Confirm Exit",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                Application.ExitThread();
-            }
-            else
-            {
-                e.Cancel = true;
-            }
         }
     }
 }
