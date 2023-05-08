@@ -222,9 +222,11 @@
             this.Controls.Add(this.PhoneNumberLabel);
             this.Controls.Add(this.EmailTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ContactForm";
             this.ShowIcon = false;
+            this.Load += new System.EventHandler(this.ContactForm_Load);
             this.OKCancelPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PhotoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddPhotoPictureBox)).EndInit();

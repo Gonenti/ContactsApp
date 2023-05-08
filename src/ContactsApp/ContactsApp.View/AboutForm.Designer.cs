@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutForm));
             this.ContactsAppLabel = new System.Windows.Forms.Label();
-            this.VersionLlabel = new System.Windows.Forms.Label();
+            this.VersionLabel = new System.Windows.Forms.Label();
             this.AuthorLabel = new System.Windows.Forms.Label();
             this.GithubLabel = new System.Windows.Forms.Label();
             this.EmailLabel = new System.Windows.Forms.Label();
@@ -56,15 +56,15 @@
             this.ContactsAppLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ContactsAppLabel.Click += new System.EventHandler(this.label1_Click);
             // 
-            // VersionLlabel
+            // VersionLabel
             // 
-            this.VersionLlabel.AutoSize = true;
-            this.VersionLlabel.Location = new System.Drawing.Point(17, 63);
-            this.VersionLlabel.Name = "VersionLlabel";
-            this.VersionLlabel.Size = new System.Drawing.Size(31, 15);
-            this.VersionLlabel.TabIndex = 1;
-            this.VersionLlabel.Text = "v 1.0";
-            this.VersionLlabel.Click += new System.EventHandler(this.label2_Click);
+            this.VersionLabel.AutoSize = true;
+            this.VersionLabel.Location = new System.Drawing.Point(17, 63);
+            this.VersionLabel.Name = "VersionLabel";
+            this.VersionLabel.Size = new System.Drawing.Size(31, 15);
+            this.VersionLabel.TabIndex = 1;
+            this.VersionLabel.Text = "v 1.0";
+            this.VersionLabel.Click += new System.EventHandler(this.label2_Click);
             // 
             // AuthorLabel
             // 
@@ -194,13 +194,14 @@
             this.Controls.Add(this.EmailLabel);
             this.Controls.Add(this.GithubLabel);
             this.Controls.Add(this.AuthorLabel);
-            this.Controls.Add(this.VersionLlabel);
+            this.Controls.Add(this.VersionLabel);
             this.Controls.Add(this.ContactsAppLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(540, 450);
             this.Name = "AboutForm";
             this.ShowIcon = false;
+            this.Load += new System.EventHandler(this.AboutForm_Load);
             this.OKPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -210,7 +211,7 @@
         #endregion
 
         private Label ContactsAppLabel;
-        private Label VersionLlabel;
+        private Label VersionLabel;
         private Label AuthorLabel;
         private Label GithubLabel;
         private Label EmailLabel;

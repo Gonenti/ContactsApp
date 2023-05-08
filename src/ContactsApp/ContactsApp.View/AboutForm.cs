@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-
-namespace ContactsApp.View
+﻿namespace ContactsApp.View
 {
+    using System.Diagnostics;
     public partial class AboutForm : Form
     {
         public AboutForm()
@@ -44,6 +33,13 @@ namespace ContactsApp.View
 
         }
 
+        /// <summary>
+        /// Handles the LinkClicked event of the GithubLinkLabel control.
+        /// Changes the color of the link text by setting LinkVisited to true
+        /// and opens a URL in the default browser.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">A LinkLabelLinkClickedEventArgs that contains the event data.</param>
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Change the color of the link text by setting LinkVisited
@@ -55,9 +51,15 @@ namespace ContactsApp.View
 
         }
 
+        /// <summary>
+        /// Handles the LinkClicked event of the IconLinkLabel control.
+        /// Changes the color and the active area of the link text by setting LinkVisited
+        /// and LinkArea properties to true and opens a URL in the default browser.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">A LinkLabelLinkClickedEventArgs that contains the event data.</param>
         private void IconLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
             // Change the color of the link text by setting LinkVisited
             // to true.
             GithubLinkLabel.LinkVisited = true;
@@ -65,6 +67,11 @@ namespace ContactsApp.View
             //with a URL:
             var parameter = new ProcessStartInfo { Verb = "open", FileName = "explorer", Arguments = "https://disk.yandex.ru/d/xkREY5uu1A6czA" };
             Process.Start(parameter);
+        }
+
+        private void AboutForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

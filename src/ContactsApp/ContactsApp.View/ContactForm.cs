@@ -8,18 +8,34 @@
     public partial class ContactForm : Form
     {
         /// <summary>
-        /// Represents a set of colors and error messages that can be used to validate and display errors for
-        /// user input fields in a form. The "WhiteColor" field represents the default background color of the
-        /// input fields, while "ErrorColor" represents the background color to be used when there is an error
-        /// in the user's input. The "FullNameError", "EmailError", "PhoneNumberError", and "VKError" fields
-        /// represent the error messages to be displayed for each corresponding user input field.
+        /// Represents a white color for user input fields in a form. 
         /// </summary>
-        private Color WhiteColor = Color.White;
-        private Color ErrorColor = Color.LightPink;
-        private string FullNameError = "";
-        private string EmailError = "";
-        private string PhoneNumberError = "";
-        private string VKError = "";
+        private Color _whiteColor = Color.White;
+
+        /// <summary>
+        /// Represents a LightPink color for erorr in user input fields in a form. 
+        /// </summary>
+        private Color _errorColor = Color.LightPink;
+
+        /// <summary>
+        /// store information about Full name error
+        /// </summary>
+        private string _fullNameError = "";
+
+        /// <summary>
+        /// store information about email error
+        /// </summary>
+        private string _emailError = "";
+
+        /// <summary>
+        /// store information about Phone Number error
+        /// </summary>
+        private string _phoneNumberError = "";
+
+        /// <summary>
+        /// store information about Vk error
+        /// </summary>
+        private string _vkError = "";
 
         /// <summary>
         /// Initializes a new instance of the Contact class and assigns it to the _contact field. The new Contact
@@ -42,7 +58,6 @@
         /// </summary>
         private void UpdateForm()
         {
-
             FullNameTextBox.Text = _contact.FullName;
             EmailTextBox.Text = _contact.Email;
             PhoneNumberTextBox.Text = _contact.PhoneNumber;
@@ -103,15 +118,15 @@
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {
-            FullNameTextBox.BackColor = WhiteColor;
+            FullNameTextBox.BackColor = _whiteColor;
             try
             {
                 _contact.FullName = FullNameTextBox.Text;
             }
             catch (ArgumentException error)
             {
-                FullNameTextBox.BackColor = ErrorColor;
-                FullNameError = error.Message;
+                FullNameTextBox.BackColor = _errorColor;
+                __fullNameError = error.Message;
             }
         }
 
@@ -122,15 +137,15 @@
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void EmailTextBox_TextChanged(object sender, EventArgs e)
         {
-            EmailTextBox.BackColor = WhiteColor;
+            EmailTextBox.BackColor = _whiteColor;
             try
             {
                 _contact.Email = EmailTextBox.Text;
             }
             catch (ArgumentException error)
             {
-                EmailTextBox.BackColor = ErrorColor;
-                EmailError = error.Message;
+                EmailTextBox.BackColor = _errorColor;
+                _emailError = error.Message;
             }
         }
 
@@ -141,15 +156,15 @@
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
         {
-            PhoneNumberTextBox.BackColor = WhiteColor;
+            PhoneNumberTextBox.BackColor = _whiteColor;
             try
             {
                 _contact.PhoneNumber = PhoneNumberTextBox.Text;
             }
             catch (ArgumentException error)
             {
-                PhoneNumberTextBox.BackColor = ErrorColor;
-                PhoneNumberError = error.Message;
+                PhoneNumberTextBox.BackColor = _errorColor;
+                _phoneNumberError = error.Message;
             }
         }
 
@@ -160,15 +175,15 @@
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void VKTextBox_TextChanged(object sender, EventArgs e)
         {
-            VKTextBox.BackColor = WhiteColor;
+            VKTextBox.BackColor = _whiteColor;
             try
             {
                 _contact.VkontakteId = VKTextBox.Text;
             }
             catch (ArgumentException error)
             {
-                VKTextBox.BackColor= ErrorColor;
-                VKError = error.Message;
+                VKTextBox.BackColor= _errorColor;
+                _vkError = error.Message;
             }
         }
 
@@ -177,8 +192,7 @@
         /// </summary>
         private bool isErrorsOnForm()
         {
-            string error = FullNameError + EmailError + PhoneNumberError + VKError;
-
+            string error = _fullNameError + _emailError + _phoneNumberError + _vkError;
             if (error == "")
                 return false;
             else
@@ -186,6 +200,11 @@
                 MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return true;
             }
+        }
+
+        private void ContactForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -8,7 +8,6 @@ namespace ContactsApp.View
         /// </summary>
         private Project _project = new Project();
 
-        
         public MainForm()
         {
             InitializeComponent();
@@ -17,7 +16,7 @@ namespace ContactsApp.View
         /// <summary>
         /// Clears the selected object by resetting all text boxes to empty strings.
         /// </summary>
-        private void ClearSelectedObject()
+        private void ClearSelectedContact()
         {
             FullNameTextBox.Text = "";
             EmailTextBox.Text = "";
@@ -30,15 +29,14 @@ namespace ContactsApp.View
         /// Updates the selected object by filling in text boxes with the information from the selected contact.
         /// </summary>
         /// <param name="index">The index of the selected contact.</param>
-        private void UpdateSelectedObject(int index)
+        private void UpdateSelectedContact(int index)
         {
-            List<Contact> contacts = _project.AllContacts;
-
-            FullNameTextBox.Text = contacts[index].FullName;
-            EmailTextBox.Text = contacts[index].Email;
-            PhoneNumberTextBox.Text = contacts[index].PhoneNumber;
-            DateOfBirthtextBox.Text = contacts[index].DateOfBirth.ToString();
-            VKTextBox.Text = contacts[index].VkontakteId;
+            Contact contacts = _project.AllContacts[index];
+            FullNameTextBox.Text = contacts.FullName;
+            EmailTextBox.Text = contacts.Email;
+            PhoneNumberTextBox.Text = contacts.PhoneNumber;
+            DateOfBirthtextBox.Text = contacts.DateOfBirth.ToString();
+            VKTextBox.Text = contacts.VkontakteId;
 
         }
 
@@ -89,13 +87,37 @@ namespace ContactsApp.View
         }
 
         /// <summary>
+        /// Handles the FormClosing event of the MainForm control.
+        /// Asks the user to confirm the exit action.
+        /// If the user selects Yes, exits the application.
+        /// Otherwise, cancels the closing event.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to exit the application?",
+                "Confirm Exit",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.ExitThread();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
+        /// <summary>
         /// Handles the click event for the AddContactButton by adding a new contact to the project, updating the list.
         /// </summary>
         /// <param name="sender">The control that triggered the event.</param>
         /// <param name="e">The event arguments.</param>
         private void AddContactButton_Click(object sender, EventArgs e)
         {
-            
             AddContact();
             UpdateList();
             var form = new ContactForm();
@@ -146,31 +168,6 @@ namespace ContactsApp.View
             {
                 var form = new AboutForm();
                 form.Show();
-            }
-        }
-
-        /// <summary>
-        /// Handles the FormClosing event of the MainForm control.
-        /// Asks the user to confirm the exit action.
-        /// If the user selects Yes, exits the application.
-        /// Otherwise, cancels the closing event.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult result = MessageBox.Show(
-                "Are you sure you want to exit the application?",
-                "Confirm Exit",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                Application.ExitThread();
-            }
-            else
-            {
-                e.Cancel = true;
             }
         }
 
@@ -249,8 +246,8 @@ namespace ContactsApp.View
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ContactsListBox.SelectedIndex == -1) ClearSelectedObject();
-            UpdateSelectedObject(ContactsListBox.SelectedIndex);
+            if (ContactsListBox.SelectedIndex == -1) ClearSelectedContact();
+            UpdateSelectedContact(ContactsListBox.SelectedIndex);
         }
     }
 }

@@ -182,7 +182,7 @@
             this.ContactsListBox.ItemHeight = 15;
             this.ContactsListBox.Location = new System.Drawing.Point(3, 32);
             this.ContactsListBox.Name = "ContactsListBox";
-            this.ContactsListBox.Size = new System.Drawing.Size(189, 382);
+            this.ContactsListBox.Size = new System.Drawing.Size(189, 380);
             this.ContactsListBox.TabIndex = 0;
             this.ContactsListBox.SelectedIndexChanged += new System.EventHandler(this.ContactsListBox_SelectedIndexChanged);
             // 
@@ -203,7 +203,7 @@
             this.NotePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.NotePanel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.NotePanel.Location = new System.Drawing.Point(202, 2);
-            this.NotePanel.Margin = new System.Windows.Forms.Padding(2);
+            this.NotePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.NotePanel.Name = "NotePanel";
             this.NotePanel.Size = new System.Drawing.Size(596, 446);
             this.NotePanel.TabIndex = 1;
@@ -385,7 +385,8 @@
             this.Controls.Add(this.MainTableLayoutPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "ContactForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);

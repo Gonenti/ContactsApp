@@ -1,8 +1,8 @@
-﻿/// <summary>
-/// Represents a collection of contacts and provides methods for adding, removing, and querying contacts.
-/// </summary>
-namespace ContactsApp.Model
+﻿namespace ContactsApp.Model
 {
+    /// <summary>
+    /// Represents a collection of contacts and provides methods for adding, removing, and querying contacts.
+    /// </summary>
     public class Project
     {
         /// <summary>
@@ -16,6 +16,25 @@ namespace ContactsApp.Model
         public Project()
         {
             _contacts = new List<Contact>();
+        }
+
+        /// <summary>
+        /// Search Birthday Contacts
+        /// </summary>
+        /// <returns></returns>
+        public List<Contact> FindContactsBirthday()
+        {
+            List<Contact> сontactsBirthdays = new List<Contact>();
+            for (int i = 0; i < _contacts.Count; i++)
+            {
+                if (_contacts[i].DateOfBirth.Month == DateTime.Today.Month &&
+                    _contacts[i].DateOfBirth.Day == DateTime.Today.Day)
+                {
+                    сontactsBirthdays.Add(_contacts[i]);
+                }
+
+            }
+            return сontactsBirthdays;
         }
 
         /// <summary>
@@ -60,9 +79,9 @@ namespace ContactsApp.Model
         /// </summary>
         /// <param name="initials">The initials to match.</param>
         /// <returns>A new list of contacts whose full name starts with the specified initials.</returns>
-        public List<Contact> GetContactsByInitials(string initials)
+        public List<Contact> GetContactsByName(string name)
         {
-            return _contacts.Where(c => c.FullName.StartsWith(initials)).ToList();
+            return _contacts.Where(c => c.FullName.StartsWith(name)).ToList();
         }
 
         /// <summary>

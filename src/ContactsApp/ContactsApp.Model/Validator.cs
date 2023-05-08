@@ -33,7 +33,7 @@
         }
 
         /// <summary>
-        /// Validates an email address.
+        /// Validates an email address. example: example2000@gmail.com
         /// </summary>
         /// <param name="value">The email address to validate.</param>
         /// <returns>The validated email address.</returns>
@@ -52,7 +52,7 @@
             }
             catch
             {
-                throw new ArgumentException("EmailError: Incorrect email.\n");
+                throw new ArgumentException("EmailError: Incorrect email. An example of proper email: example2000@gmail.com\n");
             }
 
             return value;
