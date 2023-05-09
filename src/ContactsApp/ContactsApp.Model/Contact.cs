@@ -1,6 +1,6 @@
 ﻿namespace ContactsApp.Model
 {
-    public class Contact : ICloneable
+    public class Contact
     {
         /// <summary>
         /// Full name of user
@@ -97,7 +97,7 @@
         /// <summary>
         /// ICloneable implementation
         /// </summary>
-        public object Clone()
+        public Contact Clone()
         {
             return new Contact(_fullName, _email, _phoneNumber, _dateOfBirth, _vkontakteId);
         }

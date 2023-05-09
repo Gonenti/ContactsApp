@@ -7,6 +7,7 @@
     /// </summary>
     public partial class ContactForm : Form
     {
+        private bool _cancelFlag = false;
         /// <summary>
         /// Represents a white color for user input fields in a form. 
         /// </summary>
@@ -42,7 +43,31 @@
         /// object is created with randomly generated values for the full name, email, phone number, date of birth,
         /// and Vkontakte ID fields, using the methods provided by the Generator class.
         /// </summary>
-        private Contact _contact = Generator.getContact();
+        private Contact _contact = Generator.getEmtyContact();
+
+        public bool CancelFlag
+        {
+            get
+            {
+                return _cancelFlag;
+            }
+        }
+
+        /// <summary>
+        /// property for the contact field
+        /// </summary>
+        public Contact Contact
+        {
+            get
+            {
+                return _contact;
+            }
+            set
+            {
+                _contact = value;
+                UpdateForm();
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ContactForm"/> class.
@@ -63,6 +88,7 @@
             PhoneNumberTextBox.Text = _contact.PhoneNumber;
             BirthdayDateTimePicker.Text = _contact.DateOfBirth.ToString();
             VKTextBox.Text = _contact.VkontakteId;
+            
         }
 
         /// <summary>
@@ -96,8 +122,10 @@
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OkButton_Click(object sender, EventArgs e)
         {
-            if(!isErrorsOnForm())
+            if (!isErrorsOnForm())
+            {
                 this.Close();
+            }
         }
 
         /// <summary>
@@ -107,8 +135,8 @@
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
+            _cancelFlag= true;
             this.Close();
-
         }
 
         /// <summary>
@@ -118,6 +146,8 @@
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {
+
+            _fullNameError = "";
             FullNameTextBox.BackColor = _whiteColor;
             try
             {
@@ -126,7 +156,7 @@
             catch (ArgumentException error)
             {
                 FullNameTextBox.BackColor = _errorColor;
-                __fullNameError = error.Message;
+                _fullNameError = error.Message;
             }
         }
 
@@ -137,6 +167,7 @@
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void EmailTextBox_TextChanged(object sender, EventArgs e)
         {
+            _emailError = "";
             EmailTextBox.BackColor = _whiteColor;
             try
             {
@@ -156,6 +187,7 @@
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
         {
+            _phoneNumberError = "";
             PhoneNumberTextBox.BackColor = _whiteColor;
             try
             {
@@ -175,6 +207,7 @@
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void VKTextBox_TextChanged(object sender, EventArgs e)
         {
+            _vkError = "";
             VKTextBox.BackColor = _whiteColor;
             try
             {
@@ -189,7 +222,7 @@
 
         /// <summary>
         /// Сhecking the form for errors
-        /// </summary>
+        /// </summary>_fullNameError
         private bool isErrorsOnForm()
         {
             string error = _fullNameError + _emailError + _phoneNumberError + _vkError;

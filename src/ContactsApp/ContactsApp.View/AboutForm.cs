@@ -60,6 +60,7 @@
         /// <param name="e">A LinkLabelLinkClickedEventArgs that contains the event data.</param>
         private void IconLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            
             // Change the color of the link text by setting LinkVisited
             // to true.
             GithubLinkLabel.LinkVisited = true;

@@ -2,6 +2,9 @@
 {
     using System.Net.Mail;
     using System.Text.RegularExpressions;
+    /// <summary>
+    ///the class is intended for validating values    
+    /// </summary>
     public static class Validator
     {
         /// <summary>

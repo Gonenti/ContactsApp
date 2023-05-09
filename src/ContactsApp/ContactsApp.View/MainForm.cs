@@ -1,6 +1,9 @@
 namespace ContactsApp.View
 {
+
     using ContactsApp.Model;
+    using System;
+
     public partial class MainForm : Form
     {
         /// <summary>
@@ -31,6 +34,7 @@ namespace ContactsApp.View
         /// <param name="index">The index of the selected contact.</param>
         private void UpdateSelectedContact(int index)
         {
+            if (index == -1) return;
             Contact contacts = _project.AllContacts[index];
             FullNameTextBox.Text = contacts.FullName;
             EmailTextBox.Text = contacts.Email;
@@ -62,10 +66,24 @@ namespace ContactsApp.View
         /// <summary>
         /// Adds a new contact to the project with generated information, and updates the list.
         /// </summary>
-        private void AddContact()
+        private void AddContact(Contact contact)
         {
-            Contact contact = Generator.getContact();
             _project.AddContact(contact);
+        }
+
+        private void EditContact(int index)
+        {
+            if (index == -1) return;
+            Contact selectedContact = _project.AllContacts[index].Clone();
+            var contactForm = new ContactForm();
+            contactForm.Contact = selectedContact;
+            contactForm.ShowDialog();
+       
+            if (contactForm.CancelFlag) return;
+            Contact updatedData = contactForm.Contact;
+            _project.RemoveContact(selectedContact);
+            _project.InsertContactByIndex(updatedData, index);
+            UpdateSelectedContact(index);
         }
 
         /// <summary>
@@ -118,10 +136,14 @@ namespace ContactsApp.View
         /// <param name="e">The event arguments.</param>
         private void AddContactButton_Click(object sender, EventArgs e)
         {
-            AddContact();
+            var contactForm = new ContactForm();
+            contactForm.ShowDialog();
+
+            if (contactForm.CancelFlag) return;
+            var updatedData = contactForm.Contact;
+            AddContact(updatedData);
             UpdateList();
-            var form = new ContactForm();
-            form.ShowDialog();
+            
         }
 
         /// <summary>
@@ -131,8 +153,7 @@ namespace ContactsApp.View
         /// <param name="e">The event arguments.</param>
         private void EditContactButton_Click(object sender, EventArgs e)
         {
-            AddContact();
-            UpdateList();
+            EditContact(ContactsListBox.SelectedIndex);
         }
 
         /// <summary>
