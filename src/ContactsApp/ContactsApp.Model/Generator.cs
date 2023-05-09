@@ -9,7 +9,7 @@
         /// Generates a random phone number in the format of +xxxxxxxxxx.
         /// </summary>
         /// <returns>A string containing the generated phone number.</returns>
-        public static string PhoneNumber()
+        private static string PhoneNumber()
         {
             Random random = new Random();
             return "+" + random.Next(10000, 99999).ToString() + random.Next(100000, 999999).ToString();
@@ -116,6 +116,13 @@
             return new Contact(FullName(),
             Email(), PhoneNumber(),
             TimeStamp(), VkId());
+        }
+
+        public static Contact getEmtyContact()
+        {
+            return new Contact("",
+            "", "",
+            TimeStamp(), "");
         }
     }
 }

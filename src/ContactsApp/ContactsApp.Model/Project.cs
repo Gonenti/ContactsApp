@@ -11,6 +11,16 @@
         private List<Contact> _contacts;
 
         /// <summary>
+        /// Returns a copy of the list of contacts.
+        /// </summary>
+        /// <returns>A new list of contacts containing the same contacts as the original list.</returns>
+        public List<Contact> AllContacts
+        {
+            get { return _contacts; }
+            //return new List<Contact>(_contacts);
+        }
+
+        /// <summary>
         /// Initializes a new instance of the Project class and creates a new empty list of contacts.
         /// </summary>
         public Project()
@@ -47,22 +57,22 @@
         }
 
         /// <summary>
+        /// Adds a new contact to the list of contacts.
+        /// </summary>
+        /// <param name="contact">The contact to add to the list.</param>
+        public void InsertContactByIndex(Contact contact, int index)
+        {
+            if (index < 0) return;
+            _contacts[index] = contact;
+        }
+
+        /// <summary>
         /// Removes a contact from the list of contacts.
         /// </summary>
         /// <param name="contact">The contact to remove from the list.</param>
         public void RemoveContact(Contact contact)
         {
             _contacts.Remove(contact);
-        }
-
-        /// <summary>
-        /// Returns a copy of the list of contacts.
-        /// </summary>
-        /// <returns>A new list of contacts containing the same contacts as the original list.</returns>
-        public List<Contact> AllContacts
-        {
-            get { return _contacts; }
-            //return new List<Contact>(_contacts);
         }
 
         /// <summary>
