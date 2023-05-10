@@ -14,6 +14,12 @@ namespace ContactsApp.View
         public MainForm()
         {
             InitializeComponent();
+
+            for (int i = 0; i<10; i++)
+            {
+                _project.AddContact(Generator.getContact());
+                UpdateList();
+            }
         }
 
         /// <summary>
@@ -35,13 +41,13 @@ namespace ContactsApp.View
         private void UpdateSelectedContact(int index)
         {
             if (index == -1) return;
-            Contact contacts = _project.AllContacts[index];
-            FullNameTextBox.Text = contacts.FullName;
-            EmailTextBox.Text = contacts.Email;
-            PhoneNumberTextBox.Text = contacts.PhoneNumber;
-            DateOfBirthtextBox.Text = contacts.DateOfBirth.ToString();
-            VKTextBox.Text = contacts.VkontakteId;
-
+            List<Contact> foundedContacts = _project.GetContactsBySubstring(FindTextBox.Text);
+            Contact contact = foundedContacts[index];
+            FullNameTextBox.Text = contact.FullName;
+            EmailTextBox.Text = contact.Email;
+            PhoneNumberTextBox.Text = contact.PhoneNumber;
+            DateOfBirthtextBox.Text = contact.DateOfBirth.ToString();
+            VKTextBox.Text = contact.VkontakteId;
         }
 
         /// <summary>
@@ -52,13 +58,15 @@ namespace ContactsApp.View
         {
             if (index == -1) return;
 
+            List<Contact> foundedContacts = _project.GetContactsBySubstring(FindTextBox.Text);
             List<Contact> contacts = _project.AllContacts;
-            if (MessageBox.Show($"Do you really want to remove {contacts[index].FullName}", 
+            if (MessageBox.Show($"Do you really want to remove {foundedContacts[index].FullName}", 
                 "Delete contact",
                 MessageBoxButtons.OKCancel) 
                 == DialogResult.Cancel) return;
 
-            _project.RemoveContact(contacts[index]);
+            int projectIndex = _project.FindContactsByFullName(foundedContacts[index]);
+            _project.RemoveContact(contacts[projectIndex]);
             UpdateList();
 
         }
@@ -74,16 +82,18 @@ namespace ContactsApp.View
         private void EditContact(int index)
         {
             if (index == -1) return;
-            Contact selectedContact = _project.AllContacts[index].Clone();
+            List<Contact> foundedContacts = _project.GetContactsBySubstring(FindTextBox.Text);
+            Contact selectedContact = foundedContacts[index].Clone();
             var contactForm = new ContactForm();
             contactForm.Contact = selectedContact;
             contactForm.ShowDialog();
-       
+
             if (contactForm.CancelFlag) return;
             Contact updatedData = contactForm.Contact;
-            _project.RemoveContact(selectedContact);
-            _project.InsertContactByIndex(updatedData, index);
+            int projectIndex = _project.FindContactsByFullName(foundedContacts[index]);
+            _project.InsertContactByIndex(updatedData, projectIndex);
             UpdateSelectedContact(index);
+            UpdateList();
         }
 
         /// <summary>
@@ -95,7 +105,8 @@ namespace ContactsApp.View
             ContactsListBox.Items.Clear();
 
             // Get the contacts from the project
-            List<Contact> contacts = _project.AllContacts;
+            List<Contact> contacts = _project.SortContactsByFullName();
+
 
             // Add the last name of each contact to the list
             foreach (Contact contact in contacts)
@@ -269,6 +280,17 @@ namespace ContactsApp.View
         {
             if (ContactsListBox.SelectedIndex == -1) ClearSelectedContact();
             UpdateSelectedContact(ContactsListBox.SelectedIndex);
+        }
+
+        private void FindTextBox_TextChanged(object sender, EventArgs e)
+        {
+            List<Contact>  foundedContact = _project.GetContactsBySubstring(FindTextBox.Text);
+
+            ContactsListBox.Items.Clear();
+            foreach (Contact contact in foundedContact)
+            {
+                ContactsListBox.Items.Add(contact.FullName);
+            }
         }
     }
 }

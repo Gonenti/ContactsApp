@@ -226,7 +226,16 @@
         private bool isErrorsOnForm()
         {
             string error = _fullNameError + _emailError + _phoneNumberError + _vkError;
-            if (error == "")
+            if (FullNameTextBox.Text.Equals("") || 
+            EmailTextBox.Text.Equals("") ||
+            PhoneNumberTextBox.Text.Equals("") ||
+            PhoneNumberTextBox.Text.Equals("") ||
+            BirthdayDateTimePicker.Text.Equals("") ||
+            VKTextBox.Text.Equals(""))
+            {
+                error = "fill in the empty fields"; 
+            }
+            if ((error == ""))
                 return false;
             else
             {
