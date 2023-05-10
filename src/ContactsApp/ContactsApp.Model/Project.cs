@@ -79,29 +79,29 @@
         /// Returns a sorted list of contacts ordered by their full name.
         /// </summary>
         /// <returns>A new list of contacts sorted by full name.</returns>
-        public List<Contact> GetContactsByFullName()
+        public List<Contact> SortContactsByFullName()
         {
             return _contacts.OrderBy(c => c.FullName).ToList();
         }
 
         /// <summary>
-        /// Returns a list of contacts whose full name starts with the specified initials.
-        /// </summary>
-        /// <param name="initials">The initials to match.</param>
-        /// <returns>A new list of contacts whose full name starts with the specified initials.</returns>
-        public List<Contact> GetContactsByName(string name)
-        {
-            return _contacts.Where(c => c.FullName.StartsWith(name)).ToList();
-        }
-
-        /// <summary>
-        /// Returns a list of contacts whose full name contains the specified substring.
+        /// Returns a list of contacts whose  contains the specified substring.
         /// </summary>
         /// <param name="substring">The substring to match.</param>
-        /// <returns>A new list of contacts whose full name contains the specified substring.</returns>
-        public List<Contact> GetContactsBySubstring(string substring)
+        /// <returns>A new list of contacts whose contains the specified substring.</returns>
+        public List<Contact> GetContactsBySubstring(string substring) 
         {
-            return _contacts.Where(c => c.FullName.Contains(substring)).ToList();
+            return _contacts.Where(c => c.FullName.Contains(substring) ||
+                                        c.Email.Contains(substring) ||
+                                        c.PhoneNumber.Contains(substring) ||
+                                        c.DateOfBirth.ToString().Contains(substring) ||
+                                        c.VkontakteId.Contains(substring)
+                                        ).OrderBy(c => c.FullName).ToList();
+        }
+
+        public int FindContactsByFullName(Contact contact)
+        {
+            return _contacts.IndexOf(contact);
         }
     }
 
