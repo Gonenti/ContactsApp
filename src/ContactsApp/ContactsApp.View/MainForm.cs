@@ -59,14 +59,21 @@ namespace ContactsApp.View
             if (index == -1) return;
 
             List<Contact> foundedContacts = _project.GetContactsBySubstring(FindTextBox.Text);
-            List<Contact> contacts = _project.AllContacts;
             if (MessageBox.Show($"Do you really want to remove {foundedContacts[index].FullName}", 
                 "Delete contact",
                 MessageBoxButtons.OKCancel) 
                 == DialogResult.Cancel) return;
 
             int projectIndex = _project.FindContactsByFullName(foundedContacts[index]);
-            _project.RemoveContact(contacts[projectIndex]);
+            _project.RemoveContact(_project.AllContacts[projectIndex]);
+            if (foundedContacts.Count == index + 1)
+            {
+                UpdateSelectedContact(0);
+            }
+            else
+            {
+                UpdateSelectedContact(index);
+            }
             UpdateList();
 
         }
