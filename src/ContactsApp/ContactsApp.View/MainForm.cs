@@ -2,6 +2,8 @@ namespace ContactsApp.View
 {
 
     using ContactsApp.Model;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
     using System;
 
     public partial class MainForm : Form
@@ -10,16 +12,12 @@ namespace ContactsApp.View
         /// Creating a new object of type project
         /// </summary>
         private Project _project = new Project();
-
+        private ProjectSerializer _projectSerializer = new ProjectSerializer();
         public MainForm()
         {
             InitializeComponent();
-
-            for (int i = 0; i<10; i++)
-            {
-                _project.AddContact(Generator.getContact());
-                UpdateList();
-            }
+            _project = _projectSerializer.LoadFromFile();
+            UpdateList();
         }
 
         /// <summary>
@@ -75,6 +73,7 @@ namespace ContactsApp.View
                 UpdateSelectedContact(index);
             }
             UpdateList();
+            _projectSerializer.SaveToFile(_project);
 
         }
 
@@ -84,6 +83,7 @@ namespace ContactsApp.View
         private void AddContact(Contact contact)
         {
             _project.AddContact(contact);
+            _projectSerializer.SaveToFile(_project);
         }
 
         private void EditContact(int index)
@@ -101,6 +101,7 @@ namespace ContactsApp.View
             _project.InsertContactByIndex(updatedData, projectIndex);
             UpdateSelectedContact(index);
             UpdateList();
+            _projectSerializer.SaveToFile(_project);
         }
 
         /// <summary>
@@ -140,6 +141,7 @@ namespace ContactsApp.View
             if (result == DialogResult.Yes)
             {
                 Application.ExitThread();
+                _projectSerializer.SaveToFile(_project);
             }
             else
             {
