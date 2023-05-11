@@ -235,6 +235,7 @@
             {
                 error = "fill in the empty fields"; 
             }
+
             if ((error == ""))
                 return false;
             else

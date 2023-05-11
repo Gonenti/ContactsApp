@@ -39,6 +39,7 @@ namespace ContactsApp.View
         private void UpdateSelectedContact(int index)
         {
             if (index == -1) return;
+            if (_project.AllContacts.Count == 0) return;
             List<Contact> foundedContacts = _project.GetContactsBySubstring(FindTextBox.Text);
             Contact contact = foundedContacts[index];
             FullNameTextBox.Text = contact.FullName;
@@ -62,7 +63,7 @@ namespace ContactsApp.View
                 MessageBoxButtons.OKCancel) 
                 == DialogResult.Cancel) return;
 
-            int projectIndex = _project.FindContactsByFullName(foundedContacts[index]);
+            int projectIndex = _project.FindContact(foundedContacts[index]);
             _project.RemoveContact(_project.AllContacts[projectIndex]);
             if (foundedContacts.Count == index + 1)
             {
@@ -82,8 +83,15 @@ namespace ContactsApp.View
         /// </summary>
         private void AddContact(Contact contact)
         {
-            _project.AddContact(contact);
-            _projectSerializer.SaveToFile(_project);
+            try
+            {
+                _project.AddContact(contact);
+                _projectSerializer.SaveToFile(_project);
+            }
+            catch (ArgumentException error)
+            {
+                MessageBox.Show(error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void EditContact(int index)
@@ -97,7 +105,7 @@ namespace ContactsApp.View
 
             if (contactForm.CancelFlag) return;
             Contact updatedData = contactForm.Contact;
-            int projectIndex = _project.FindContactsByFullName(foundedContacts[index]);
+            int projectIndex = _project.FindContact(foundedContacts[index]);
             _project.InsertContactByIndex(updatedData, projectIndex);
             UpdateSelectedContact(index);
             UpdateList();

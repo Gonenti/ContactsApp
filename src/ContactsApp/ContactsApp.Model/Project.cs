@@ -1,4 +1,7 @@
-﻿namespace ContactsApp.Model
+﻿using System.Data.SqlTypes;
+using System.Linq;
+
+namespace ContactsApp.Model
 {
     /// <summary>
     /// Represents a collection of contacts and provides methods for adding, removing, and querying contacts.
@@ -53,6 +56,10 @@
         /// <param name="contact">The contact to add to the list.</param>
         public void AddContact(Contact contact)
         {
+            if (_contacts.Any(c => c.FullName.Equals(contact.FullName)))
+            { 
+                throw new ArgumentException("This contact already exist"); 
+            }
             _contacts.Add(contact);
         }
 
@@ -99,7 +106,7 @@
                                         ).OrderBy(c => c.FullName).ToList();
         }
 
-        public int FindContactsByFullName(Contact contact)
+        public int FindContact(Contact contact)
         {
             return _contacts.IndexOf(contact);
         }
