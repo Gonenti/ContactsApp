@@ -54,16 +54,18 @@
             this.OKCancelPanel.Controls.Add(this.OkButton);
             this.OKCancelPanel.Controls.Add(this.CancelButton);
             this.OKCancelPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.OKCancelPanel.Location = new System.Drawing.Point(0, 306);
+            this.OKCancelPanel.Location = new System.Drawing.Point(0, 510);
+            this.OKCancelPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.OKCancelPanel.Name = "OKCancelPanel";
-            this.OKCancelPanel.Size = new System.Drawing.Size(524, 45);
+            this.OKCancelPanel.Size = new System.Drawing.Size(749, 75);
             this.OKCancelPanel.TabIndex = 0;
             // 
             // OkButton
             // 
-            this.OkButton.Location = new System.Drawing.Point(356, 10);
+            this.OkButton.Location = new System.Drawing.Point(509, 17);
+            this.OkButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.OkButton.Name = "OkButton";
-            this.OkButton.Size = new System.Drawing.Size(75, 23);
+            this.OkButton.Size = new System.Drawing.Size(107, 38);
             this.OkButton.TabIndex = 1;
             this.OkButton.TabStop = false;
             this.OkButton.Text = "OK";
@@ -72,9 +74,10 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(437, 10);
+            this.CancelButton.Location = new System.Drawing.Point(624, 17);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.Size = new System.Drawing.Size(107, 38);
             this.CancelButton.TabIndex = 0;
             this.CancelButton.TabStop = false;
             this.CancelButton.Text = "Cancel";
@@ -84,29 +87,30 @@
             // VKTextBox
             // 
             this.VKTextBox.BackColor = System.Drawing.Color.White;
-            this.VKTextBox.Location = new System.Drawing.Point(118, 251);
+            this.VKTextBox.Location = new System.Drawing.Point(169, 418);
+            this.VKTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.VKTextBox.Name = "VKTextBox";
-            this.VKTextBox.Size = new System.Drawing.Size(150, 23);
+            this.VKTextBox.Size = new System.Drawing.Size(213, 31);
             this.VKTextBox.TabIndex = 21;
             this.VKTextBox.TextChanged += new System.EventHandler(this.VKTextBox_TextChanged);
             // 
             // VKLabel
             // 
             this.VKLabel.AutoSize = true;
-            this.VKLabel.Location = new System.Drawing.Point(118, 233);
-            this.VKLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.VKLabel.Location = new System.Drawing.Point(169, 388);
+            this.VKLabel.Margin = new System.Windows.Forms.Padding(4, 17, 4, 0);
             this.VKLabel.Name = "VKLabel";
-            this.VKLabel.Size = new System.Drawing.Size(24, 15);
+            this.VKLabel.Size = new System.Drawing.Size(37, 25);
             this.VKLabel.TabIndex = 20;
             this.VKLabel.Text = "VK:";
             // 
             // DateOfBirthLabel
             // 
             this.DateOfBirthLabel.AutoSize = true;
-            this.DateOfBirthLabel.Location = new System.Drawing.Point(118, 179);
-            this.DateOfBirthLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.DateOfBirthLabel.Location = new System.Drawing.Point(169, 298);
+            this.DateOfBirthLabel.Margin = new System.Windows.Forms.Padding(4, 17, 4, 0);
             this.DateOfBirthLabel.Name = "DateOfBirthLabel";
-            this.DateOfBirthLabel.Size = new System.Drawing.Size(73, 15);
+            this.DateOfBirthLabel.Size = new System.Drawing.Size(112, 25);
             this.DateOfBirthLabel.TabIndex = 18;
             this.DateOfBirthLabel.Text = "Date of Birth";
             // 
@@ -114,19 +118,20 @@
             // 
             this.PhoneNumberTextBox.BackColor = System.Drawing.Color.White;
             this.PhoneNumberTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PhoneNumberTextBox.Location = new System.Drawing.Point(118, 143);
+            this.PhoneNumberTextBox.Location = new System.Drawing.Point(169, 238);
+            this.PhoneNumberTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
-            this.PhoneNumberTextBox.Size = new System.Drawing.Size(150, 23);
+            this.PhoneNumberTextBox.Size = new System.Drawing.Size(213, 31);
             this.PhoneNumberTextBox.TabIndex = 17;
             this.PhoneNumberTextBox.TextChanged += new System.EventHandler(this.PhoneNumberTextBox_TextChanged);
             // 
             // PhoneNumberLabel
             // 
             this.PhoneNumberLabel.AutoSize = true;
-            this.PhoneNumberLabel.Location = new System.Drawing.Point(118, 125);
-            this.PhoneNumberLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.PhoneNumberLabel.Location = new System.Drawing.Point(169, 208);
+            this.PhoneNumberLabel.Margin = new System.Windows.Forms.Padding(4, 17, 4, 0);
             this.PhoneNumberLabel.Name = "PhoneNumberLabel";
-            this.PhoneNumberLabel.Size = new System.Drawing.Size(88, 15);
+            this.PhoneNumberLabel.Size = new System.Drawing.Size(131, 25);
             this.PhoneNumberLabel.TabIndex = 16;
             this.PhoneNumberLabel.Text = "PhoneNumber:";
             // 
@@ -136,19 +141,20 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EmailTextBox.BackColor = System.Drawing.Color.White;
             this.EmailTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EmailTextBox.Location = new System.Drawing.Point(118, 89);
+            this.EmailTextBox.Location = new System.Drawing.Point(169, 148);
+            this.EmailTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(394, 23);
+            this.EmailTextBox.Size = new System.Drawing.Size(561, 31);
             this.EmailTextBox.TabIndex = 15;
             this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
             // 
             // EmailLabel
             // 
             this.EmailLabel.AutoSize = true;
-            this.EmailLabel.Location = new System.Drawing.Point(118, 69);
-            this.EmailLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.EmailLabel.Location = new System.Drawing.Point(169, 115);
+            this.EmailLabel.Margin = new System.Windows.Forms.Padding(4, 17, 4, 0);
             this.EmailLabel.Name = "EmailLabel";
-            this.EmailLabel.Size = new System.Drawing.Size(44, 15);
+            this.EmailLabel.Size = new System.Drawing.Size(65, 25);
             this.EmailLabel.TabIndex = 14;
             this.EmailLabel.Text = "E-mail:";
             // 
@@ -158,44 +164,50 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FullNameTextBox.BackColor = System.Drawing.Color.White;
             this.FullNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FullNameTextBox.Location = new System.Drawing.Point(118, 33);
+            this.FullNameTextBox.Location = new System.Drawing.Point(169, 55);
+            this.FullNameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FullNameTextBox.Name = "FullNameTextBox";
-            this.FullNameTextBox.Size = new System.Drawing.Size(394, 23);
+            this.FullNameTextBox.Size = new System.Drawing.Size(561, 31);
             this.FullNameTextBox.TabIndex = 13;
             this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
             // 
             // FullNameLabel
             // 
             this.FullNameLabel.AutoSize = true;
-            this.FullNameLabel.Location = new System.Drawing.Point(118, 15);
+            this.FullNameLabel.Location = new System.Drawing.Point(169, 25);
+            this.FullNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FullNameLabel.Name = "FullNameLabel";
-            this.FullNameLabel.Size = new System.Drawing.Size(64, 15);
+            this.FullNameLabel.Size = new System.Drawing.Size(95, 25);
             this.FullNameLabel.TabIndex = 12;
             this.FullNameLabel.Text = "Full Name:";
             // 
             // PhotoPictureBox
             // 
             this.PhotoPictureBox.Image = global::ContactsApp.View.Properties.Resources.photo_placeholder_100x100;
-            this.PhotoPictureBox.Location = new System.Drawing.Point(12, 12);
+            this.PhotoPictureBox.Location = new System.Drawing.Point(17, 20);
+            this.PhotoPictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PhotoPictureBox.Name = "PhotoPictureBox";
-            this.PhotoPictureBox.Size = new System.Drawing.Size(100, 100);
+            this.PhotoPictureBox.Size = new System.Drawing.Size(143, 167);
             this.PhotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.PhotoPictureBox.TabIndex = 11;
             this.PhotoPictureBox.TabStop = false;
             // 
             // BirthdayDateTimePicker
             // 
-            this.BirthdayDateTimePicker.Location = new System.Drawing.Point(118, 197);
+            this.BirthdayDateTimePicker.Location = new System.Drawing.Point(169, 328);
+            this.BirthdayDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BirthdayDateTimePicker.Name = "BirthdayDateTimePicker";
-            this.BirthdayDateTimePicker.Size = new System.Drawing.Size(150, 23);
+            this.BirthdayDateTimePicker.Size = new System.Drawing.Size(213, 31);
             this.BirthdayDateTimePicker.TabIndex = 22;
+            this.BirthdayDateTimePicker.ValueChanged += new System.EventHandler(this.BirthdayDateTimePicker_ValueChanged);
             // 
             // AddPhotoPictureBox
             // 
             this.AddPhotoPictureBox.Image = global::ContactsApp.View.Properties.Resources.add_photo_32x32_gray;
-            this.AddPhotoPictureBox.Location = new System.Drawing.Point(30, 118);
+            this.AddPhotoPictureBox.Location = new System.Drawing.Point(43, 197);
+            this.AddPhotoPictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.AddPhotoPictureBox.Name = "AddPhotoPictureBox";
-            this.AddPhotoPictureBox.Size = new System.Drawing.Size(63, 33);
+            this.AddPhotoPictureBox.Size = new System.Drawing.Size(90, 55);
             this.AddPhotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.AddPhotoPictureBox.TabIndex = 23;
             this.AddPhotoPictureBox.TabStop = false;
@@ -204,10 +216,10 @@
             // 
             // ContactForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(524, 351);
+            this.ClientSize = new System.Drawing.Size(749, 585);
             this.Controls.Add(this.AddPhotoPictureBox);
             this.Controls.Add(this.BirthdayDateTimePicker);
             this.Controls.Add(this.VKTextBox);
@@ -222,6 +234,7 @@
             this.Controls.Add(this.PhoneNumberLabel);
             this.Controls.Add(this.EmailTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ContactForm";

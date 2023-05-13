@@ -200,6 +200,11 @@
             }
         }
 
+        private void BirthdayDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            _contact.DateOfBirth = BirthdayDateTimePicker.Value;
+        }
+
         /// <summary>
         /// Handles the TextChanged event of the VKTextBox control.
         /// </summary>
