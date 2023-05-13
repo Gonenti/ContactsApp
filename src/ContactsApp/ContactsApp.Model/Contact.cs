@@ -27,6 +27,13 @@
         /// </summary>
         private string _vkontakteId;
 
+
+
+        public Contact() 
+        {
+            _dateOfBirth = Validator.ValidateDateOfBirth(DateTime.Now);
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Contact"/> class.
         /// </summary>
@@ -41,11 +48,11 @@
             DateTime dateOfBirth, 
             string vkontakteId)
         {
-            _fullName = fullName;
-            _email = email;
-            _phoneNumber = phoneNumber;
-            _dateOfBirth = dateOfBirth;
-            _vkontakteId = vkontakteId;
+            _fullName = Validator.ValidateFullName(fullName);
+            _email = Validator.ValidateEmail(email);
+            _phoneNumber = Validator.ValidatePhoneNumber(phoneNumber);
+            _dateOfBirth = Validator.ValidateDateOfBirth(dateOfBirth);
+            _vkontakteId = Validator.ValidateVkontakteId(vkontakteId);
         }
 
         /// <summary>
