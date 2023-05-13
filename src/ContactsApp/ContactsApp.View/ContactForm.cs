@@ -43,7 +43,7 @@
         /// object is created with randomly generated values for the full name, email, phone number, date of birth,
         /// and Vkontakte ID fields, using the methods provided by the Generator class.
         /// </summary>
-        private Contact _contact = Generator.getEmtyContact();
+        private Contact _contact = new Contact();
 
         public bool CancelFlag
         {

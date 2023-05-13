@@ -1,7 +1,4 @@
-﻿using System.Data.SqlTypes;
-using System.Linq;
-
-namespace ContactsApp.Model
+﻿namespace ContactsApp.Model
 {
     /// <summary>
     /// Represents a collection of contacts and provides methods for adding, removing, and querying contacts.
@@ -67,7 +64,7 @@ namespace ContactsApp.Model
         /// Adds a new contact to the list of contacts.
         /// </summary>
         /// <param name="contact">The contact to add to the list.</param>
-        public void InsertContactByIndex(Contact contact, int index)
+        public void ReplaceContactByIndex(Contact contact, int index)
         {
             if (index < 0) return;
             _contacts[index] = contact;
@@ -96,7 +93,7 @@ namespace ContactsApp.Model
         /// </summary>
         /// <param name="substring">The substring to match.</param>
         /// <returns>A new list of contacts whose contains the specified substring.</returns>
-        public List<Contact> GetContactsBySubstring(string substring) 
+        public List<Contact> GetContactsBySubstring(string substring)
         {
             return _contacts.Where(c => c.FullName.Contains(substring) ||
                                         c.Email.Contains(substring) ||
@@ -111,5 +108,4 @@ namespace ContactsApp.Model
             return _contacts.IndexOf(contact);
         }
     }
-
 }

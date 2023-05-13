@@ -117,12 +117,5 @@
             Email(), PhoneNumber(),
             TimeStamp(), VkId());
         }
-
-        public static Contact getEmtyContact()
-        {
-            return new Contact("",
-            "", "",
-            TimeStamp(), "");
-        }
     }
 }

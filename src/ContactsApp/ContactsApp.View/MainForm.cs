@@ -1,9 +1,6 @@
 namespace ContactsApp.View
 {
-
     using ContactsApp.Model;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
     using System;
 
     public partial class MainForm : Form
@@ -106,7 +103,7 @@ namespace ContactsApp.View
             if (contactForm.CancelFlag) return;
             Contact updatedData = contactForm.Contact;
             int projectIndex = _project.FindContact(foundedContacts[index]);
-            _project.InsertContactByIndex(updatedData, projectIndex);
+            _project.ReplaceContactByIndex(updatedData, projectIndex);
             UpdateSelectedContact(index);
             UpdateList();
             _projectSerializer.SaveToFile(_project);

@@ -70,13 +70,17 @@
         public static string ValidatePhoneNumber(string value)
         {
             if (string.IsNullOrEmpty(value))
-                return value;
+                throw new ArgumentException("PhoneNumberError: Phone Number can not be emty\n");
+
+            if (!value.StartsWith("+"))
+                throw new ArgumentException("PhoneNumberError: Phone Number must starts with '+'\n");
+
+            if (Regex.Replace(value, @"[^\d]", "").Length != 11)
+                throw new ArgumentException("PhoneNumberError: There should be 11 digits\n");
 
             if (!Regex.IsMatch(value, @"^[0-9+()\- ]+$"))
                 throw new ArgumentException("PhoneNumberError: Phone number can only contain digits and the characters" +
                                             "'+', '(', ')', '-', and ' '.\n");
-            if (value.Length > 12 || value.Length < 12)
-                throw new ArgumentException("PhoneNumberError: There should be 11 digits\n");
 
                 return value;
         }
@@ -104,7 +108,7 @@
         public static string ValidateVkontakteId(string value)
         {
             if (string.IsNullOrEmpty(value))
-                return value;
+                throw new ArgumentException("VKError: VK id can not be emty\n");
 
             if (value.Length > 50)
                 throw new ArgumentException("VKError: VKontakte ID cannot exceed 50 characters.\n");
