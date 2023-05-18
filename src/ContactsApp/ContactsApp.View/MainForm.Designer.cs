@@ -249,9 +249,8 @@
             this.BirthdaySurnamePanel.Location = new System.Drawing.Point(144, 68);
             this.BirthdaySurnamePanel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BirthdaySurnamePanel.Name = "BirthdaySurnamePanel";
-            this.BirthdaySurnamePanel.Size = new System.Drawing.Size(299, 25);
+            this.BirthdaySurnamePanel.Size = new System.Drawing.Size(0, 25);
             this.BirthdaySurnamePanel.TabIndex = 2;
-            this.BirthdaySurnamePanel.Text = "Абакумов, Петров, Иванов и др.";
             // 
             // NoteLabel
             // 

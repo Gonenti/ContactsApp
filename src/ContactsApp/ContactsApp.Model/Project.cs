@@ -103,6 +103,11 @@
                                         ).OrderBy(c => c.FullName).ToList();
         }
 
+        /// <summary>
+        /// Search for the contact index
+        /// </summary>
+        /// <param name="contact">the contact whose index you need to find.</param>
+        /// <returns>Contact index.</returns>
         public int FindContact(Contact contact)
         {
             return _contacts.IndexOf(contact);

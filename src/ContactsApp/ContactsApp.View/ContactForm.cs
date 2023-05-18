@@ -7,7 +7,11 @@
     /// </summary>
     public partial class ContactForm : Form
     {
-        private bool _cancelFlag = false;
+        /// <summary>
+        /// Error flag 
+        /// </summary>
+        private bool _ErorFlag = true;
+
         /// <summary>
         /// Represents a white color for user input fields in a form. 
         /// </summary>
@@ -49,7 +53,7 @@
         {
             get
             {
-                return _cancelFlag;
+                return _ErorFlag;
             }
         }
 
@@ -135,7 +139,7 @@
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            _cancelFlag= true;
+            _ErorFlag= true;
             this.Close();
         }
 
@@ -242,12 +246,13 @@
             }
 
             if ((error == ""))
-                return false;
+                _ErorFlag = false;
             else
             {
                 MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return true;
+                _ErorFlag = true;
             }
+            return _ErorFlag;
         }
 
         private void ContactForm_Load(object sender, EventArgs e)

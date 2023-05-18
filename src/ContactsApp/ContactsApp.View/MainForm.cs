@@ -18,6 +18,35 @@ namespace ContactsApp.View
         }
 
         /// <summary>
+        /// Check all users who have birthday today
+        /// </summary>
+        private void checkTodaybirthday()
+        {
+            BirthdaySurnamePanel.Text = "";
+            List<Contact> birthdayList = _project.FindContactsBirthday();
+            if (birthdayList.Count == 0)
+            {
+                //Спросить вот здесь!
+                BirthdayPanel.Visible = false;
+                return;
+            }
+
+            for (int i = 0; i < birthdayList.Count; i++)
+            {
+                if (i == 3)
+                {
+                    BirthdaySurnamePanel.Text += "etc.";
+                    return;
+                }
+
+                BirthdaySurnamePanel.Text += i == birthdayList.Count - 1 ? 
+                                          $"{birthdayList[i].FullName.Split(" ")[0]}" : 
+                                          $"{birthdayList[i].FullName.Split(" ")[0]}, ";
+            }
+
+        }
+
+        /// <summary>
         /// Clears the selected object by resetting all text boxes to empty strings.
         /// </summary>
         private void ClearSelectedContact()
@@ -62,8 +91,13 @@ namespace ContactsApp.View
 
             int projectIndex = _project.FindContact(foundedContacts[index]);
             _project.RemoveContact(_project.AllContacts[projectIndex]);
-            if (foundedContacts.Count == index + 1)
+            if (foundedContacts.Count == 0)
             {
+                ClearSelectedContact();
+            }
+            else if (foundedContacts.Count == index + 1)
+            {
+                ClearSelectedContact();
                 UpdateSelectedContact(0);
             }
             else
@@ -91,6 +125,10 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Edit selected contact
+        /// <param name="index">The index of the contact which you need to edit.</param>
+        /// </summary>
         private void EditContact(int index)
         {
             if (index == -1) return;
@@ -114,6 +152,7 @@ namespace ContactsApp.View
         /// </summary>
         private void UpdateList()
         {
+            checkTodaybirthday();
             // Clear all elements from the list
             ContactsListBox.Items.Clear();
 
@@ -292,10 +331,16 @@ namespace ContactsApp.View
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ContactsListBox.SelectedIndex == -1) ClearSelectedContact();
             UpdateSelectedContact(ContactsListBox.SelectedIndex);
         }
 
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of the ContactsListBox control.
+        /// If the selected index is -1, clears the selected object.
+        /// Otherwise, updates the selected object with the selected index.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void FindTextBox_TextChanged(object sender, EventArgs e)
         {
             List<Contact>  foundedContact = _project.GetContactsBySubstring(FindTextBox.Text);

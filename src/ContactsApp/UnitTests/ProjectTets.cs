@@ -6,6 +6,20 @@
         private Project _project;
 
         [Test]
+        public void ProjectConstructor_WithValidParameters_CreatesProjectObject()
+        {
+            // Arrange
+            Project project = new Project();
+
+            // Act
+            List<Contact> contacts = project.AllContacts;
+
+            // Assert
+            Assert.IsNotNull(contacts);
+            Assert.AreEqual(0, contacts.Count);
+        }
+
+        [Test]
         public void AllContacts_ShouldGetAllContacts_AllContacts()
         {
             // Arrange
@@ -167,6 +181,31 @@
 
             // ACT & Assert
             Assert.AreEqual("Bekzod Olimov", _project.GetContactsBySubstring("Bekzod")[0].FullName);
+        }
+
+        [Test]
+        public void FindContactsBirthday_ReturnsContactsWithMatchingBirthday()
+        {
+            // Arrange
+            Project project = new Project();
+            Contact contact1 = new Contact("Bekzod Olimov", "Olimov.bekzod.2002@gmail.com",
+                                                    "+1123-456-7890", DateTime.Now, "Bekzod");
+            Contact contact2 = new Contact("Alex Vovorunov", "Alex.doe@example.com",
+                                        "+12345678901", DateTime.Now, "Alex394123");
+            Contact contact3 = new Contact("Bigi Vivi", "bigi.doe@example.com",
+                            "+12345678901", new DateTime(1985, 2, 2), "Bigi23342");
+            project.AddContact(contact1);
+            project.AddContact(contact2);
+            project.AddContact(contact3);
+
+            // Act
+            List<Contact> contactsBirthdays = project.FindContactsBirthday();
+
+            // Assert
+            Assert.IsNotNull(contactsBirthdays);
+            Assert.AreEqual(2, contactsBirthdays.Count);
+            CollectionAssert.Contains(contactsBirthdays, contact1);
+            CollectionAssert.Contains(contactsBirthdays, contact2);
         }
     }
 }
