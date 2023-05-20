@@ -16,28 +16,54 @@
         /// <summary>
         /// Name of the json file
         /// </summary>
-        private readonly string _filename;
-        
+        private readonly string FILE_NAME = "project.json";
+
         /// <summary>
-        /// Gets the filename of the serialized project.
+        /// Developer name
         /// </summary>
-        public string Filename => _filename;
-        
+        private readonly string DEVELOPER_NAME = "Olimov";
+
+        /// <summary>
+        /// Programm name
+        /// </summary>
+        private readonly string APP_NAME = "project.json";
+
+        /// <summary>
+        /// Gets the file name of the serialized project.
+        /// </summary>
+        public string FileName => FILE_NAME;
+
+        /// <summary>
+        /// Gets the developer name
+        /// </summary>
+        public string DeveloperName => DEVELOPER_NAME;
+
+        /// <summary>
+        /// Gets the APP name
+        /// </summary>
+        public string AppName => APP_NAME;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectSerializer"/> class.
         /// </summary>
         public ProjectSerializer()
         {
             _pathToFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                                     "Olimov",
-                                     "ContactApp"
+                                     DEVELOPER_NAME,
+                                     APP_NAME
                                      );
             CreateFolder(_pathToFile);
-            _filename = "project.json";
-        
-        
         }
-        
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProjectSerializer"/> class with class.
+        /// </summary>
+        public ProjectSerializer(string path)
+        {
+            _pathToFile = path;
+            CreateFolder(_pathToFile);
+        }
+
         /// <summary>
         /// Saves the specified <paramref name="project"/> to a JSON file.
         /// </summary>
@@ -49,7 +75,7 @@
             {
                 var json = JsonConvert.SerializeObject(project, Formatting.Indented);
                 File.WriteAllText(
-                    Path.Combine(_pathToFile, _filename), 
+                    Path.Combine(_pathToFile, FILE_NAME), 
                     json);
             }
             catch (IOException ex)
@@ -67,13 +93,13 @@
             CreateFolder(_pathToFile);
             try
             {
-                var json = File.ReadAllText(Path.Combine(_pathToFile, _filename));
+                var json = File.ReadAllText(Path.Combine(_pathToFile, FILE_NAME));
                 var project = JsonConvert.DeserializeObject<Project>(json);
                 return project ?? new Project();
             }
             catch (FileNotFoundException)
             {
-                 throw new FileNotFoundException($"File not found: {Path.Combine(_pathToFile, _filename)}");
+                 throw new FileNotFoundException($"File not found: {Path.Combine(_pathToFile, FILE_NAME)}");
             }
             catch (JsonReaderException ex)
             {
