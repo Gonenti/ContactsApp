@@ -6,7 +6,7 @@ namespace ContactsApp.Tests
     public class ContactTests
     {
 
-        [Test]
+        [Test(Description ="Test Contact default constructor")]
         public void ContactConstructorByDefault_WithValidParameters_CreatesContactObject()
         {
             // Act
@@ -21,7 +21,7 @@ namespace ContactsApp.Tests
             Assert.AreEqual(null, contact.VkontakteId);
         }
 
-        [Test]
+        [Test(Description = "Test Contact constructor with parametrs")]
         public void ContactConstructor_WithValidParameters_CreatesContactObject()
         {
             // Arrange
@@ -43,25 +43,7 @@ namespace ContactsApp.Tests
             Assert.AreEqual(vkontakteId, contact.VkontakteId);
         }
 
-        [Test]
-        public void Get_SetValidParameters_CreatesCopyOfContactObject()
-        {
-            // Arrange
-            Contact contact = new Contact("Bekzod Olimov", "Olimov.bekzod.2002@gmail.com", "+1123-456-7890",
-                                       new DateTime(1990, 1, 1), "1234567890");
-            // Act
-            Contact clonedContact = contact.Clone();
-
-            // Assert
-            Assert.IsNotNull(clonedContact);
-            Assert.AreEqual(contact.FullName, clonedContact.FullName);
-            Assert.AreEqual(contact.Email, clonedContact.Email);
-            Assert.AreEqual(contact.PhoneNumber, clonedContact.PhoneNumber);
-            Assert.AreEqual(contact.DateOfBirth, clonedContact.DateOfBirth);
-            Assert.AreEqual(contact.VkontakteId, clonedContact.VkontakteId);
-        }
-
-        [Test]
+        [Test(Description = "Test getter for full name field")]
         public void FullName_Getter_ReturnsFullName()
         {
             // Arrange
@@ -72,7 +54,7 @@ namespace ContactsApp.Tests
             Assert.AreEqual("Bekzod Olimov", contact.FullName);
         }
 
-        [Test]
+        [Test(Description = "Test getter for email field")]
         public void Email_Getter_ReturnsEmail()
         {
             // Arrange
@@ -82,7 +64,7 @@ namespace ContactsApp.Tests
             Assert.AreEqual("Olimov.bekzod.2002@gmail.com", contact.Email);
         }
 
-        [Test]
+        [Test(Description = "Test getter for Phone number field")]
         public void PhoneNumber_Getter_ReturnsPhoneNumber()
         {
             // Arrange
@@ -93,7 +75,7 @@ namespace ContactsApp.Tests
             Assert.AreEqual("+1123-456-7890", contact.PhoneNumber);
         }
 
-        [Test]
+        [Test(Description = "Test getter for fate of birth field")]
         public void DateOfBirth_Getter_ReturnsDateOfBirth()
         {
             // Arange
@@ -103,7 +85,7 @@ namespace ContactsApp.Tests
             Assert.AreEqual(new DateTime(1980, 1, 1), contact.DateOfBirth);
         }
 
-        [Test]
+        [Test(Description = "Test getter for Vk id field")]
         public void VkontakteId_Getter_ReturnsVkontakteId()
         {
             // Arange
@@ -113,7 +95,7 @@ namespace ContactsApp.Tests
             Assert.AreEqual("Bekzod123", contact.VkontakteId);
         }
 
-        [Test]
+        [Test(Description = "Test clone function")]
         public void Clone_SetValidParameters_CreatesCopyOfContactObject()
         {
             // Arrange

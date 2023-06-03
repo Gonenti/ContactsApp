@@ -5,7 +5,7 @@
     {
         private Project _project;
 
-        [Test]
+        [Test(Description = "Test project constructor")]
         public void ProjectConstructor_WithValidParameters_CreatesProjectObject()
         {
             // Arrange
@@ -19,7 +19,7 @@
             Assert.AreEqual(0, contacts.Count);
         }
 
-        [Test]
+        [Test(Description = "Test getter for all contacts property")]
         public void AllContacts_ShouldGetAllContacts_AllContacts()
         {
             // Arrange
@@ -43,7 +43,7 @@
             Assert.Contains(contact3, allContacts);
         }
 
-        [Test]
+        [Test(Description = "Test add contact function wit valid parametrs")]
         public void AddContact_ShouldAddContactToList_ContactAddedToList()
         {
             // Arrange
@@ -58,7 +58,7 @@
             Assert.Contains(contact, _project.AllContacts);
         }
 
-        [Test]
+        [Test(Description = "Test add contact funcion with invalid parametrs")]
         public void AddContact_ShouldThrowArgumentException_ThrowsArgumentException()
         {
             // Arrange
@@ -73,7 +73,7 @@
             Assert.Throws<ArgumentException>(() => _project.AddContact(contact));
         }
 
-        [Test]
+        [Test(Description = "Test Replace by index method with valid parametrs")]
         public void ReplaceContactByIndex_ShouldReplaceContactAtSpecifiedIndex_ContactHasChangedInTheIndex()
         {
             // Arrange
@@ -93,7 +93,7 @@
             Assert.AreEqual(contact2, _project.AllContacts[0]);
         }
 
-        [Test]
+        [Test(Description = "Test to replace contact by negative index")]
         public void ReplaceContactByIndex_ShouldReplaceContactAtSpecifiedIndex_NothingChanged()
         {
             // Arrange
@@ -113,7 +113,7 @@
             Assert.AreEqual(contact1, _project.AllContacts[0]);
         }
 
-        [Test]
+        [Test(Description = "Test remove contact function with valid parametrs")]
         public void RemoveContact_ShouldRemoveContactFromList_ContactRemovedFromProject()
         {
             // Arrange
@@ -129,7 +129,7 @@
             Assert.IsEmpty(_project.AllContacts);
         }
 
-        [Test]
+        [Test(Description = "Test sort contacts function")]
         public void SortContactsByFullName_ShouldSortContactsByName_ContactsSorted()
         {
             // Arrange
@@ -163,7 +163,7 @@
             }
         }
 
-        [Test]
+        [Test(Description = "Test sort contact function in empty list")]
         public void SortContactsByFullName_ShouldSortContactsByNameInEmpyList_ContactsSorted()
         {
             // Arrange
@@ -176,7 +176,7 @@
             Assert.AreEqual(sortedContacts, _project.SortContactsByFullName());
         }
 
-        [Test]
+        [Test(Description = "Test find contact function")]
         public void FindContact_FindContact_FoundContact()
         {
             // Arrange
@@ -193,7 +193,7 @@
             Assert.AreEqual(0, _project.FindContact(contact1));
         }
 
-        [Test]
+        [Test(Description = "Test find contact by substring function")]
         public void FindContactbySubstring_FindContactBySubstring_FoundContact()
         {
             // Arrange
@@ -210,7 +210,7 @@
             Assert.AreEqual("Bekzod Olimov", _project.GetContactsBySubstring("Bekzod")[0].FullName);
         }
 
-        [Test]
+        [Test(Description = "Test find contact by substring in empty list")]
         public void FindContactbySubstring_FindContactBySubstringInEmtyList_FoundContact()
         {
             // Arrange
@@ -221,7 +221,7 @@
             Assert.AreEqual(0, _project.GetContactsBySubstring("Bekzod").Count);
         }
 
-        [Test]
+        [Test(Description = "Test find contact by birthday function")]
         public void FindContactsBirthday_ReturnsContactsWithMatchingBirthday()
         {
             // Arrange
