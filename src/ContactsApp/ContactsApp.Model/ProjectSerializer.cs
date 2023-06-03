@@ -9,11 +9,6 @@
     public class ProjectSerializer
     {
         /// <summary>
-        /// Path to json file.
-        /// </summary>
-        private readonly string _pathToFile;
-
-        /// <summary>
         /// Name of the json file
         /// </summary>
         private readonly string FILE_NAME = "project.json";
@@ -27,6 +22,16 @@
         /// Programm name
         /// </summary>
         private readonly string APP_NAME = "ContactApp";
+
+        /// <summary>
+        /// Path to json file.
+        /// </summary>
+        private readonly string _pathToFile;
+
+        /// <summary>
+        /// Path to file property.
+        /// </summary>
+        public string PathToFile => _pathToFile;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectSerializer"/> class.
