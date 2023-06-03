@@ -133,36 +133,34 @@
         public void SortContactsByFullName_ShouldSortContactsByName_ContactsSorted()
         {
             // Arrange
+            int NUMBER_OF_CONTACTS = 6;
             _project = new Project();
-            Contact contact1 = new Contact("Frank Ferduck", "Ferduck.Frank.2012@gmail.com",
-                                                    "+1123-456-7890", new DateTime(1980, 1, 1), "Bekzod");
-            Contact contact2 = new Contact("Elis Juper", "Juper.Elis.1980@gmail.com",
-                                                    "+1123-456-7891", new DateTime(1980, 1, 1), "Bekzod");
-            Contact contact3 = new Contact("Dana Danko", "Danko.Dana.2000@gmail.com",
-                                                    "+1123-456-7892", new DateTime(1980, 1, 1), "Bekzod");
-            Contact contact4 = new Contact("Christopher Colins", "Colins.Christopher.1987@gmail.com",
-                                                    "+1123-456-7893", new DateTime(1980, 1, 1), "Bekzod");
-            Contact contact5 = new Contact("Bekzod Olimov", "Olimov.bekzod.2002@gmail.com",
-                                                    "+1123-456-7894", new DateTime(1980, 1, 1), "Bekzod");
-            Contact contact6 = new Contact("Alex Vovorunov", "Alex.doe@example.com",
-                                        "+12345678901", new DateTime(1985, 2, 2), "Alex394123");
-            _project.AddContact(contact1);
-            _project.AddContact(contact2);
-            _project.AddContact(contact3);
-            _project.AddContact(contact4);
-            _project.AddContact(contact5);
-            _project.AddContact(contact6);
+            List<Contact> ListOfAddedСontacts = new List<Contact>();
+            ListOfAddedСontacts.Add(new Contact("Frank Ferduck", "Ferduck.Frank.2012@gmail.com",
+                                                    "+1123-456-7890", new DateTime(1980, 1, 1), "Bekzod"));
+            ListOfAddedСontacts.Add(new Contact("Elis Juper", "Juper.Elis.1980@gmail.com",
+                                                    "+1123-456-7891", new DateTime(1980, 1, 1), "Bekzod"));
+            ListOfAddedСontacts.Add(new Contact("Dana Danko", "Danko.Dana.2000@gmail.com",
+                                                    "+1123-456-7892", new DateTime(1980, 1, 1), "Bekzod"));
+            ListOfAddedСontacts.Add(new Contact("Christopher Colins", "Colins.Christopher.1987@gmail.com",
+                                                     "+1123-456-7893", new DateTime(1980, 1, 1), "Bekzod"));
+            ListOfAddedСontacts.Add(new Contact("Bekzod Olimov", "Olimov.bekzod.2002@gmail.com",
+                                                     "+1123-456-7894", new DateTime(1980, 1, 1), "Bekzod"));
+            ListOfAddedСontacts.Add(new Contact("Alex Vovorunov", "Alex.doe@example.com",
+                                        "+12345678901", new DateTime(1985, 2, 2), "Alex394123"));
+
+            for (int i = 0; i < NUMBER_OF_CONTACTS; i++) { 
+                _project.AddContact(ListOfAddedСontacts[i]);
+            }
 
             // Act
             List<Contact> sortedContacts = _project.SortContactsByFullName();
 
             // Assert
-            Assert.AreEqual(contact6, sortedContacts[0]);
-            Assert.AreEqual(contact5, sortedContacts[1]);
-            Assert.AreEqual(contact4, sortedContacts[2]);
-            Assert.AreEqual(contact3, sortedContacts[3]);
-            Assert.AreEqual(contact2, sortedContacts[4]);
-            Assert.AreEqual(contact1, sortedContacts[5]);
+            for (int i = 0; i < NUMBER_OF_CONTACTS; i++)
+            {
+                Assert.AreEqual(ListOfAddedСontacts[NUMBER_OF_CONTACTS - i - 1], sortedContacts[i]);
+            }
         }
 
         [Test]
