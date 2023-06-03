@@ -64,40 +64,52 @@ namespace ContactsApp.Tests
         [Test]
         public void FullName_Getter_ReturnsFullName()
         {
+            // Arrange
             Contact contact = new Contact("Bekzod Olimov", "Olimov.bekzod.2002@gmail.com",
                                         "+1123-456-7890", new DateTime(1980, 1, 1), "Bekzod");
+
+            // Assert
             Assert.AreEqual("Bekzod Olimov", contact.FullName);
         }
 
         [Test]
         public void Email_Getter_ReturnsEmail()
         {
+            // Arrange
             Contact contact = new Contact("Bekzod Olimov", "Olimov.bekzod.2002@gmail.com",
                                         "+1123-456-7890", new DateTime(1980, 1, 1), "Bekzod");
+            // Assert
             Assert.AreEqual("Olimov.bekzod.2002@gmail.com", contact.Email);
         }
 
         [Test]
         public void PhoneNumber_Getter_ReturnsPhoneNumber()
         {
+            // Arrange
             Contact contact = new Contact("Bekzod Olimov", "Olimov.bekzod.2002@gmail.com",
                                         "+1123-456-7890", new DateTime(1980, 1, 1), "Bekzod");
+            
+            // Assert
             Assert.AreEqual("+1123-456-7890", contact.PhoneNumber);
         }
 
         [Test]
         public void DateOfBirth_Getter_ReturnsDateOfBirth()
         {
+            // Arange
             Contact contact = new Contact("Bekzod Olimov", "Olimov.bekzod.2002@gmail.com",
                                         "+1123-456-7890", new DateTime(1980, 1, 1), "Bekzod");
+            // Assert
             Assert.AreEqual(new DateTime(1980, 1, 1), contact.DateOfBirth);
         }
 
         [Test]
         public void VkontakteId_Getter_ReturnsVkontakteId()
         {
+            // Arange
             Contact contact = new Contact("Bekzod Olimov", "Olimov.bekzod.2002@gmail.com",
                                         "+1123-456-7890", new DateTime(1980, 1, 1), "Bekzod123");
+            // Assert
             Assert.AreEqual("Bekzod123", contact.VkontakteId);
         }
 
@@ -143,7 +155,7 @@ namespace ContactsApp.Tests
             // Arrange
             Contact contact = new Contact();
 
-            // Act and Assert
+            // Assert
             Assert.Throws<ArgumentException>(() => contact.Email = email);
         }
 
@@ -173,7 +185,7 @@ namespace ContactsApp.Tests
             // Arrange
             Contact contact = new Contact();
 
-            // Act and Assert
+            // Assert
             Assert.Throws<ArgumentException>(() => contact.DateOfBirth = DateTime.Parse(dateOfBirth));
         }
 
@@ -186,7 +198,7 @@ namespace ContactsApp.Tests
             // Arrange
             Contact contact = new Contact();
 
-            // Act and Assert
+            // Assert
             Assert.Throws<ArgumentException>(() => contact.VkontakteId = vkontakteId);
         }
     }

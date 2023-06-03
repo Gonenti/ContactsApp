@@ -16,10 +16,10 @@
         public static string ValidateFullName(string value)
         {
             if (string.IsNullOrEmpty(value))
-                throw new ArgumentException("NameError: Full name cannot be null or empty.\n");
+                throw new ArgumentException("NameError: Full name cannot be null or empty.");
 
             if (value.Length > 100)
-                throw new ArgumentException("NameError: Full name cannot exceed 100 characters.\n");
+                throw new ArgumentException("NameError: Full name cannot exceed 100 characters.");
 
             // convert first letter of each word to upper case
             string[] names = value.Split(' ');
@@ -44,10 +44,10 @@
         public static string ValidateEmail(string value)
         {
             if (string.IsNullOrEmpty(value))
-                throw new ArgumentException("EmailError: Email cannot be null or empty.\n");
+                throw new ArgumentException("EmailError: Email cannot be null or empty.");
 
             if (value.Length > 100)
-                throw new ArgumentException("EmailError: Email cannot exceed 100 characters.\n");
+                throw new ArgumentException("EmailError: Email cannot exceed 100 characters.");
 
             try
             {
@@ -55,7 +55,7 @@
             }
             catch
             {
-                throw new ArgumentException("EmailError: Incorrect email. An example of proper email: example2000@gmail.com\n");
+                throw new ArgumentException("EmailError: Incorrect email. An example of proper email: example2000@gmail.com");
             }
 
             return value;
@@ -70,17 +70,17 @@
         public static string ValidatePhoneNumber(string value)
         {
             if (string.IsNullOrEmpty(value))
-                throw new ArgumentException("PhoneNumberError: Phone Number can not be emty\n");
+                throw new ArgumentException("PhoneNumberError: Phone Number can not be emty");
 
             if (!value.StartsWith("+"))
-                throw new ArgumentException("PhoneNumberError: Phone Number must starts with '+'\n");
+                throw new ArgumentException("PhoneNumberError: Phone Number must starts with '+'");
 
             if (Regex.Replace(value, @"[^\d]", "").Length != 11)
-                throw new ArgumentException("PhoneNumberError: There should be 11 digits\n");
+                throw new ArgumentException("PhoneNumberError: There should be 11 digits");
 
             if (!Regex.IsMatch(value, @"^[0-9+()\- ]+$"))
                 throw new ArgumentException("PhoneNumberError: Phone number can only contain digits and the characters" +
-                                            "'+', '(', ')', '-', and ' '.\n");
+                                            "'+', '(', ')', '-', and ' '.");
 
                 return value;
         }
@@ -94,7 +94,7 @@
         public static DateTime ValidateDateOfBirth(DateTime value)
         {
             if (value.Year < 1900 || value > DateTime.Now)
-                throw new ArgumentException("Date of birth must be between 1900 and the current date.\n");
+                throw new ArgumentException("Date of birth must be between 1900 and the current date.");
 
             return value;
         }
@@ -108,10 +108,10 @@
         public static string ValidateVkontakteId(string value)
         {
             if (string.IsNullOrEmpty(value))
-                throw new ArgumentException("VKError: VK id can not be emty\n");
+                throw new ArgumentException("VKError: VK id can not be emty");
 
             if (value.Length > 50)
-                throw new ArgumentException("VKError: VKontakte ID cannot exceed 50 characters.\n");
+                throw new ArgumentException("VKError: VKontakte ID cannot exceed 50 characters.");
             return value;
         }
     }

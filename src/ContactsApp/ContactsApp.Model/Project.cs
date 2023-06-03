@@ -100,7 +100,7 @@
                                         c.PhoneNumber.Contains(substring) ||
                                         c.DateOfBirth.ToString().Contains(substring) ||
                                         c.VkontakteId.Contains(substring)
-                                        ).OrderBy(c => c.FullName).ToList();
+                                        ).ToList();
         }
 
         /// <summary>

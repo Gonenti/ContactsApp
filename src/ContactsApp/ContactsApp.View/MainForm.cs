@@ -20,7 +20,7 @@ namespace ContactsApp.View
         /// <summary>
         /// Check all users who have birthday today
         /// </summary>
-        private void checkTodaybirthday()
+        private void CheckTodaybirthday()
         {
             BirthdaySurnamePanel.Text = "";
             List<Contact> birthdayList = _project.FindContactsBirthday();
@@ -66,6 +66,7 @@ namespace ContactsApp.View
         {
             if (index == -1) return;
             if (_project.AllContacts.Count == 0) return;
+            _project.SortContactsByFullName();
             List<Contact> foundedContacts = _project.GetContactsBySubstring(FindTextBox.Text);
             Contact contact = foundedContacts[index];
             FullNameTextBox.Text = contact.FullName;
@@ -83,6 +84,7 @@ namespace ContactsApp.View
         {
             if (index == -1) return;
 
+            _project.SortContactsByFullName();
             List<Contact> foundedContacts = _project.GetContactsBySubstring(FindTextBox.Text);
             if (MessageBox.Show($"Do you really want to remove {foundedContacts[index].FullName}", 
                 "Delete contact",
@@ -132,13 +134,14 @@ namespace ContactsApp.View
         private void EditContact(int index)
         {
             if (index == -1) return;
+            _project.SortContactsByFullName();
             List<Contact> foundedContacts = _project.GetContactsBySubstring(FindTextBox.Text);
             Contact selectedContact = foundedContacts[index].Clone();
             var contactForm = new ContactForm();
             contactForm.Contact = selectedContact;
             contactForm.ShowDialog();
 
-            if (contactForm.CancelFlag) return;
+            if (contactForm.DialogResult == DialogResult.Cancel) return;
             Contact updatedData = contactForm.Contact;
             int projectIndex = _project.FindContact(foundedContacts[index]);
             _project.ReplaceContactByIndex(updatedData, projectIndex);
@@ -152,7 +155,7 @@ namespace ContactsApp.View
         /// </summary>
         private void UpdateList()
         {
-            checkTodaybirthday();
+            CheckTodaybirthday();
             // Clear all elements from the list
             ContactsListBox.Items.Clear();
 
@@ -203,7 +206,7 @@ namespace ContactsApp.View
             var contactForm = new ContactForm();
             contactForm.ShowDialog();
 
-            if (contactForm.CancelFlag) return;
+            if (contactForm.DialogResult == DialogResult.Cancel) return;
             var updatedData = contactForm.Contact;
             AddContact(updatedData);
             UpdateList();
@@ -343,6 +346,7 @@ namespace ContactsApp.View
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void FindTextBox_TextChanged(object sender, EventArgs e)
         {
+            _project.SortContactsByFullName();
             List<Contact>  foundedContact = _project.GetContactsBySubstring(FindTextBox.Text);
 
             ContactsListBox.Items.Clear();

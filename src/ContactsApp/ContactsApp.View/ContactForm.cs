@@ -8,11 +8,6 @@
     public partial class ContactForm : Form
     {
         /// <summary>
-        /// Error flag 
-        /// </summary>
-        private bool _ErorFlag = true;
-
-        /// <summary>
         /// Represents a white color for user input fields in a form. 
         /// </summary>
         private Color _whiteColor = Color.White;
@@ -48,14 +43,6 @@
         /// and Vkontakte ID fields, using the methods provided by the Generator class.
         /// </summary>
         private Contact _contact = new Contact();
-
-        public bool CancelFlag
-        {
-            get
-            {
-                return _ErorFlag;
-            }
-        }
 
         /// <summary>
         /// property for the contact field
@@ -126,7 +113,7 @@
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OkButton_Click(object sender, EventArgs e)
         {
-            if (!isErrorsOnForm())
+            if (!IsErrorsOnForm())
             {
                 this.Close();
             }
@@ -139,7 +126,7 @@
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            _ErorFlag= true;
+            DialogResult = DialogResult.Cancel; 
             this.Close();
         }
 
@@ -160,7 +147,7 @@
             catch (ArgumentException error)
             {
                 FullNameTextBox.BackColor = _errorColor;
-                _fullNameError = error.Message;
+                _fullNameError = error.Message + "\n";
             }
         }
 
@@ -180,7 +167,7 @@
             catch (ArgumentException error)
             {
                 EmailTextBox.BackColor = _errorColor;
-                _emailError = error.Message;
+                _emailError = error.Message + "\n";
             }
         }
 
@@ -200,7 +187,7 @@
             catch (ArgumentException error)
             {
                 PhoneNumberTextBox.BackColor = _errorColor;
-                _phoneNumberError = error.Message;
+                _phoneNumberError = error.Message + "\n";
             }
         }
 
@@ -225,34 +212,42 @@
             catch (ArgumentException error)
             {
                 VKTextBox.BackColor= _errorColor;
-                _vkError = error.Message;
+                _vkError = error.Message + "\n";
             }
         }
 
         /// <summary>
         /// Сhecking the form for errors
         /// </summary>_fullNameError
-        private bool isErrorsOnForm()
+        private bool IsErrorsOnForm()
         {
-            string error = _fullNameError + _emailError + _phoneNumberError + _vkError;
-            if (FullNameTextBox.Text.Equals("") || 
-            EmailTextBox.Text.Equals("") ||
-            PhoneNumberTextBox.Text.Equals("") ||
-            PhoneNumberTextBox.Text.Equals("") ||
-            BirthdayDateTimePicker.Text.Equals("") ||
-            VKTextBox.Text.Equals(""))
+            string error = _fullNameError  + _emailError + _phoneNumberError + _vkError;
+            if (FullNameTextBox.Text.Equals("")) {
+                error += "fill the FullName field\n";
+            }
+
+            if (EmailTextBox.Text.Equals(""))
             {
-                error = "fill in the empty fields"; 
+                error += "fill the Email field\n";
+            }
+
+            if (PhoneNumberTextBox.Text.Equals(""))
+            {
+                error += "fill the Phone Number field\n";
+            }
+
+            if (VKTextBox.Text.Equals(""))
+            {
+                error += "fill in the Vk Id field\n"; 
             }
 
             if ((error == ""))
-                _ErorFlag = false;
+                return false;
             else
             {
                 MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                _ErorFlag = true;
+                return true;
             }
-            return _ErorFlag;
         }
 
         private void ContactForm_Load(object sender, EventArgs e)

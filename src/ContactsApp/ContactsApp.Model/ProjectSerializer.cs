@@ -26,22 +26,7 @@
         /// <summary>
         /// Programm name
         /// </summary>
-        private readonly string APP_NAME = "project.json";
-
-        /// <summary>
-        /// Gets the file name of the serialized project.
-        /// </summary>
-        public string FileName => FILE_NAME;
-
-        /// <summary>
-        /// Gets the developer name
-        /// </summary>
-        public string DeveloperName => DEVELOPER_NAME;
-
-        /// <summary>
-        /// Gets the APP name
-        /// </summary>
-        public string AppName => APP_NAME;
+        private readonly string APP_NAME = "ContactApp";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectSerializer"/> class.
@@ -52,16 +37,9 @@
                                      DEVELOPER_NAME,
                                      APP_NAME
                                      );
-            CreateFolder(_pathToFile);
-        }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProjectSerializer"/> class with class.
-        /// </summary>
-        public ProjectSerializer(string path)
-        {
-            _pathToFile = path;
             CreateFolder(_pathToFile);
+            CreateJsonFileInFolder(_pathToFile);
         }
 
         /// <summary>
@@ -89,7 +67,7 @@
          /// </summary>
          /// <returns>The loaded <see cref="Project"/> object.</returns>
          public Project LoadFromFile()
-        {
+         {
             CreateFolder(_pathToFile);
             try
             {
@@ -97,17 +75,9 @@
                 var project = JsonConvert.DeserializeObject<Project>(json);
                 return project ?? new Project();
             }
-            catch (FileNotFoundException)
+            catch (ArgumentException error)
             {
-                 throw new FileNotFoundException($"File not found: {Path.Combine(_pathToFile, FILE_NAME)}");
-            }
-            catch (JsonReaderException ex)
-            {
-                throw new JsonReaderException($"Error reading file: {ex.Message}");
-            }
-            catch (IOException ex)
-            {
-                throw new IOException($"Error loading file: {ex.Message}");
+                 throw new FileNotFoundException($"Error: {error.Message}");
             }
         }
 
@@ -120,6 +90,13 @@
             if (!Directory.Exists(folder))
             {
                 Directory.CreateDirectory(folder);
+            }; 
+        }
+
+        public void CreateJsonFileInFolder(string folder)
+        {
+            if (Directory.Exists(folder))
+            {
                 JObject project = new JObject();
                 JsonSerializer serializer = new JsonSerializer();
                 using (StreamWriter sw = new StreamWriter(Path.Combine(folder, "project.json")))
@@ -127,7 +104,7 @@
                 {
                     serializer.Serialize(writer, project);
                 }
-            }; 
+            };
         }
     }
 }
