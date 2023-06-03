@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactsApp.Model", "Contac
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "testing", "testing", "{E2F5EB0D-DC99-48DB-930C-DD8DA2310474}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contact.App.Unit.Tests", "Contact.App.Unit.Tests\Contact.App.Unit.Tests.csproj", "{7569F855-ADBD-4B9A-92D4-EAB4CA22196A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contact.App.Model.Unit.Tests", "Contact.App.Unit.Tests\Contact.App.Model.Unit.Tests.csproj", "{7569F855-ADBD-4B9A-92D4-EAB4CA22196A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
