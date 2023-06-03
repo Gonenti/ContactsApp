@@ -38,10 +38,11 @@
         /// </summary>
         public ProjectSerializer()
         {
-            _pathToFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                                     DEVELOPER_NAME,
-                                     APP_NAME
-                                     );
+            _pathToFile = Path.Combine(Environment.GetFolderPath
+                                      (Environment.SpecialFolder.ApplicationData),
+                                      DEVELOPER_NAME,
+                                      APP_NAME
+                                      );
 
             CreateFolder(_pathToFile);
             CreateJsonFileInFolder(_pathToFile);
