@@ -105,7 +105,7 @@
         /// <param name="folder">The path to the folder.</param>
         public void CreateJsonFileInFolder(string folder)
         {
-            if (Directory.Exists(folder))
+            if (!Directory.Exists(folder))
             {
                 JObject project = new JObject();
                 JsonSerializer serializer = new JsonSerializer();
