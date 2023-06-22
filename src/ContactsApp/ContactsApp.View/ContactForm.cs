@@ -83,30 +83,6 @@
         }
 
         /// <summary>
-        /// Event handler for when the mouse enters the "Add Photo" picture box. This changes the image
-        /// displayed in the picture box to a "plus" icon, indicating that the user can click on it to
-        /// add a new photo.
-        /// </summary>
-        /// <param name="sender">The object that raised the event (the "Add Photo" picture box).</param>
-        /// <param name="e">The event arguments.</param>
-        private void AddPhotoPictureBox_MouseEnter(object sender, EventArgs e)
-        {
-            AddPhotoPictureBox.Image = Properties.Resources.add_photo_32x32;
-        }
-
-        /// <summary>
-        /// Event handler for when the mouse leaves the "Add Photo" picture box. This changes the image
-        /// displayed in the picture box to a grayed-out "plus" icon, indicating that the user cannot click
-        /// on it to add a new photo at this time.
-        /// </summary>
-        /// <param name="sender">The object that raised the event (the "Add Photo" picture box).</param>
-        /// <param name="e">The event arguments.</param>
-        private void AddPhotoPictureBox_MouseLeave(object sender, EventArgs e)
-        {
-            AddPhotoPictureBox.Image = Properties.Resources.add_photo_32x32_gray;
-        }
-
-        /// <summary>
         /// Handles the Click event of the OkButton control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
@@ -115,7 +91,7 @@
         {
             if (!IsErrorsOnForm())
             {
-                this.Close();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -250,9 +226,28 @@
             }
         }
 
-        private void ContactForm_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Event handler for when the mouse enters the "Add Photo" picture box. This changes the image
+        /// displayed in the picture box to a "plus" icon, indicating that the user can click on it to
+        /// add a new photo.
+        /// </summary>
+        /// <param name="sender">The object that raised the event (the "Add Photo" picture box).</param>
+        /// <param name="e">The event arguments.</param>
+        private void AddPhotoPictureBox_MouseEnter(object sender, EventArgs e)
         {
+            AddPhotoPictureBox.Image = Properties.Resources.add_photo_32x32;
+        }
 
+        /// <summary>
+        /// Event handler for when the mouse leaves the "Add Photo" picture box. This changes the image
+        /// displayed in the picture box to a grayed-out "plus" icon, indicating that the user cannot click
+        /// on it to add a new photo at this time.
+        /// </summary>
+        /// <param name="sender">The object that raised the event (the "Add Photo" picture box).</param>
+        /// <param name="e">The event arguments.</param>
+        private void AddPhotoPictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            AddPhotoPictureBox.Image = Properties.Resources.add_photo_32x32_gray;
         }
     }
 }

@@ -23,15 +23,15 @@ namespace ContactsApp.View
         private void CheckTodaybirthday()
         {
             BirthdaySurnamePanel.Text = "";
-            List<Contact> birthdayList = _project.FindContactsBirthday();
-            if (birthdayList.Count == 0)
+            List<Contact> birthdays = _project.FindContactsBirthday();
+            if (birthdays.Count == 0)
             {
                 //Спросить вот здесь!
                 BirthdayPanel.Visible = false;
                 return;
             }
 
-            for (int i = 0; i < birthdayList.Count; i++)
+            for (int i = 0; i < birthdays.Count; i++)
             {
                 if (i == 3)
                 {
@@ -39,9 +39,9 @@ namespace ContactsApp.View
                     return;
                 }
 
-                BirthdaySurnamePanel.Text += i == birthdayList.Count - 1 ? 
-                                          $"{birthdayList[i].FullName.Split(" ")[0]}" : 
-                                          $"{birthdayList[i].FullName.Split(" ")[0]}, ";
+                BirthdaySurnamePanel.Text += i == birthdays.Count - 1 ? 
+                                          $"{birthdays[i].FullName.Split(" ")[0]}" : 
+                                          $"{birthdays[i].FullName.Split(" ")[0]}, ";
             }
 
         }
@@ -141,7 +141,8 @@ namespace ContactsApp.View
             contactForm.Contact = selectedContact;
             contactForm.ShowDialog();
 
-            if (contactForm.DialogResult == DialogResult.Cancel) return;
+            if (contactForm.DialogResult != DialogResult.OK) return;
+
             Contact updatedData = contactForm.Contact;
             int projectIndex = _project.FindContact(foundedContacts[index]);
             _project.ReplaceContactByIndex(updatedData, projectIndex);
@@ -206,7 +207,7 @@ namespace ContactsApp.View
             var contactForm = new ContactForm();
             contactForm.ShowDialog();
 
-            if (contactForm.DialogResult == DialogResult.Cancel) return;
+            if (contactForm.DialogResult != DialogResult.OK) return;
             var updatedData = contactForm.Contact;
             AddContact(updatedData);
             UpdateList();

@@ -45,9 +45,9 @@
             Process.Start(parameter);
         }
 
-        private void AboutForm_Load(object sender, EventArgs e)
+        private void OKButton_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 

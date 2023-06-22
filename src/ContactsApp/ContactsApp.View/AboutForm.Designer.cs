@@ -183,6 +183,7 @@
             this.OKButton.TabIndex = 0;
             this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = true;
+            this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
             // AboutForm
             // 
@@ -208,7 +209,6 @@
             this.MaximumSize = new System.Drawing.Size(762, 713);
             this.Name = "AboutForm";
             this.ShowIcon = false;
-            this.Load += new System.EventHandler(this.AboutForm_Load);
             this.OKPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

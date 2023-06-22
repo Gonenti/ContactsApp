@@ -149,7 +149,8 @@
             ListOfAddedСontacts.Add(new Contact("Alex Vovorunov", "Alex.doe@example.com",
                                         "+12345678901", new DateTime(1985, 2, 2), "Alex394123"));
 
-            for (int i = 0; i < NUMBER_OF_CONTACTS; i++) { 
+            for (int i = 0; i < NUMBER_OF_CONTACTS; i++) 
+            { 
                 _project.AddContact(ListOfAddedСontacts[i]);
             }
 
