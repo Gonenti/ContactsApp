@@ -161,7 +161,7 @@ namespace ContactsApp.View
             ContactsListBox.Items.Clear();
 
             // Get the contacts from the project
-            List<Contact> contacts = _project.SortContactsByFullName();
+            List<Contact> contacts = _project.GetContactsBySubstring(FindTextBox.Text);
 
 
             // Add the last name of each contact to the list
@@ -347,14 +347,7 @@ namespace ContactsApp.View
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void FindTextBox_TextChanged(object sender, EventArgs e)
         {
-            _project.SortContactsByFullName();
-            List<Contact>  foundedContact = _project.GetContactsBySubstring(FindTextBox.Text);
-
-            ContactsListBox.Items.Clear();
-            foreach (Contact contact in foundedContact)
-            {
-                ContactsListBox.Items.Add(contact.FullName);
-            }
+            UpdateList();
         }
     }
 }
