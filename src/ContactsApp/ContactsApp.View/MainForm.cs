@@ -15,6 +15,8 @@ namespace ContactsApp.View
             InitializeComponent();
             _project = _projectSerializer.LoadFromFile();
             UpdateList();
+            this.ActiveControl = FindTextBox; 
+
         }
 
         /// <summary>
@@ -162,7 +164,7 @@ namespace ContactsApp.View
 
             // Get the contacts from the project
             List<Contact> contacts = _project.GetContactsBySubstring(FindTextBox.Text);
-
+            
 
             // Add the last name of each contact to the list
             foreach (Contact contact in contacts)
