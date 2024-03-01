@@ -45,7 +45,7 @@
                                       );
 
             CreateFolder(_pathToFile);
-            CreateJsonFileInFolder(_pathToFile);
+            CreateJsonFileInFolder(_pathToFile, FILE_NAME);
         }
 
         /// <summary>
@@ -103,9 +103,9 @@
         /// Creates a file in the folder <paramref name="folder"/> 
         /// </summary>
         /// <param name="folder">The path to the folder.</param>
-        public void CreateJsonFileInFolder(string folder)
+        public void CreateJsonFileInFolder(string folder, string fileName)
         {
-            if (!Directory.Exists(folder))
+            if (!File.Exists(Path.Combine(folder, fileName)))
             {
                 JObject project = new JObject();
                 JsonSerializer serializer = new JsonSerializer();

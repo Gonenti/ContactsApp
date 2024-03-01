@@ -16,7 +16,7 @@
         /// Represents a LightPink color for erorr in user input fields in a form. 
         /// </summary>
         private Color _errorColor = Color.LightPink;
-
+        
         /// <summary>
         /// store information about Full name error
         /// </summary>
